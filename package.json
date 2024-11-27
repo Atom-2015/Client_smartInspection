@@ -1,4 +1,5 @@
 {
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "react-rte": "^0.16.5"
   }
