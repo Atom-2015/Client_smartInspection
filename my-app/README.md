@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-
+<!-- "proxy": "http://host.docker.internal:3001/", -->
 
   <!-- // "proxy": "http://localhost:3001/", -->
 
