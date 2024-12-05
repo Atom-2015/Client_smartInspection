@@ -98,6 +98,133 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import Map, { Marker, NavigationControl, FullscreenControl, GeolocateControl } from 'react-map-gl';
+// import 'mapbox-gl/dist/mapbox-gl.css';
+// import { useNavigate } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+
+// const MapboxMap = () => {
+//   const [viewState, setViewState] = useState({
+//     latitude: 28.6139, // Default latitude (New Delhi)
+//     longitude: 77.2090, // Default longitude (New Delhi)
+//     zoom: 2, // Initial zoom level
+//   });
+
+//   const [inspections, setInspections] = useState([]);
+//   const [hoveredInspection, setHoveredInspection] = useState(null); // State to manage hovered inspection
+//   const navigate = useNavigate();
+
+//   // Fetch inspections data from the API
+//   useEffect(() => {
+//     const fetchInspections = async () => {
+//       try {
+//         const response = await axios.get('/api/main/listing', {
+//           headers: {
+//             'x-auth-token': localStorage.getItem('token')
+//           }
+//         });
+//         setInspections(response.data);
+//       } catch (error) {
+//         console.error('Error fetching inspections:', error);
+//       }
+//     };
+
+//     fetchInspections();
+//   }, []);
+
+//   // Handle marker click
+//   const handleMarkerClick = (id) => {
+//     console.log('Clicked inspection:', id);
+//     navigate('/detail/analyse', { state: { id } });
+//   };
+
+//   // Helper to parse decimal values safely
+//   const parseDecimal = (value) => {
+//     return value ? parseFloat(value.$numberDecimal) : null;
+//   };
+
+//   return (
+//     <div style={{ height: '100%', width: '100%' }}>
+//       <Map
+//         {...viewState}
+//         mapboxAccessToken={
+//           process.env.REACT_APP_MAPBOX_ACCESS_TOKEN ||
+//           'pk.eyJ1IjoibmlraXRhY2hhdWhhbjEyMyIsImEiOiJjbGwwaWxrdzEwZW02M2pxcjN4eHo1bDR1In0.I4yZh8CAQOz2c63IsCBOpg'
+//         }
+//         style={{ width: '100%', height: '100%' }}
+//         mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
+//         onMove={(evt) => setViewState(evt.viewState)}
+//       >
+//         {inspections.map((inspection) => {
+//           const inspectionLat = parseDecimal(inspection.latitude);
+//           const inspectionLng = parseDecimal(inspection.longitude);
+
+//           const firstImage = inspection.image?.[0] || {};
+//           const imageLat = parseDecimal(firstImage.latitude);
+//           const imageLng = parseDecimal(firstImage.longitude);
+
+//           const latitude = imageLat || inspectionLat;
+//           const longitude = imageLng || inspectionLng;
+
+//           // Render marker only if valid coordinates are found
+//           if (latitude !== null && longitude !== null) {
+//             return (
+//               <Marker key={inspection._id} latitude={latitude} longitude={longitude}>
+//                 <div
+//                   onClick={() => handleMarkerClick(inspection._id)}
+//                   onMouseOver={() => setHoveredInspection(inspection.inspaction_name)}
+//                   onMouseOut={() => setHoveredInspection(null)}
+//                   style={{ cursor: 'pointer' }}
+//                 >
+//                   <FontAwesomeIcon icon={faLocationDot} beat style={{ color: "#cb1515" , width: "18px" , height:"18px" }} />
+//                   {/* Display tooltip if this inspection is hovered */}
+//                   {hoveredInspection === inspection.inspaction_name && (
+//                     <div style={{
+//                       position: 'absolute',
+//                       backgroundColor: '#2f588e',
+//                       padding: '5px',
+//                       borderRadius: '4px',
+//                       top: '-30px',
+//                       left: '20px',
+//                       boxShadow: '0px 0px 5px 2px rgba(0,0,0,0.2)',
+//                       fontSize: '13px',
+//                       color: 'white',
+//                       width: '80px',
+//                       fontFamily: 'sans-serif'
+
+//                     }}>
+//                       {inspection.inspaction_name}
+//                     </div>
+//                   )}
+//                 </div>
+//               </Marker>
+//             );
+//           }
+//           return null; // Skip rendering if no valid coordinates
+//         })}
+
+//         {/* Map Controls */}
+//         <NavigationControl position="top-right" />
+//         <FullscreenControl position="top-right" />
+//         <GeolocateControl
+//           position="top-right"
+//           trackUserLocation={true}
+//           showUserHeading={true}
+//         />
+//       </Map>
+//     </div>
+//   );
+// };
+
+// export default MapboxMap;
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Map, { Marker, NavigationControl, FullscreenControl, GeolocateControl } from 'react-map-gl';
@@ -117,6 +244,16 @@ const MapboxMap = () => {
   const [hoveredInspection, setHoveredInspection] = useState(null); // State to manage hovered inspection
   const navigate = useNavigate();
 
+  // Helper to parse decimal values safely
+  const parseDecimal = (value) => {
+    try {
+      return value ? parseFloat(value.$numberDecimal) : null;
+    } catch (err) {
+      console.error('Error parsing decimal:', value, err);
+      return null;
+    }
+  };
+
   // Fetch inspections data from the API
   useEffect(() => {
     const fetchInspections = async () => {
@@ -126,9 +263,11 @@ const MapboxMap = () => {
             'x-auth-token': localStorage.getItem('token')
           }
         });
-        setInspections(response.data);
+        const data = response.data || []; // Fallback to empty array if no data
+        setInspections(Array.isArray(data) ? data : []); // Ensure inspections is always an array
       } catch (error) {
         console.error('Error fetching inspections:', error);
+        setInspections([]); // Reset to empty array on error
       }
     };
 
@@ -139,11 +278,6 @@ const MapboxMap = () => {
   const handleMarkerClick = (id) => {
     console.log('Clicked inspection:', id);
     navigate('/detail/analyse', { state: { id } });
-  };
-
-  // Helper to parse decimal values safely
-  const parseDecimal = (value) => {
-    return value ? parseFloat(value.$numberDecimal) : null;
   };
 
   return (
@@ -158,53 +292,59 @@ const MapboxMap = () => {
         mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
         onMove={(evt) => setViewState(evt.viewState)}
       >
-        {inspections.map((inspection) => {
-          const inspectionLat = parseDecimal(inspection.latitude);
-          const inspectionLng = parseDecimal(inspection.longitude);
+        {Array.isArray(inspections) &&
+          inspections.map((inspection) => {
+            const inspectionLat = parseDecimal(inspection.latitude);
+            const inspectionLng = parseDecimal(inspection.longitude);
 
-          const firstImage = inspection.image?.[0] || {};
-          const imageLat = parseDecimal(firstImage.latitude);
-          const imageLng = parseDecimal(firstImage.longitude);
+            const firstImage = inspection.image?.[0] || {};
+            const imageLat = parseDecimal(firstImage.latitude);
+            const imageLng = parseDecimal(firstImage.longitude);
 
-          const latitude = imageLat || inspectionLat;
-          const longitude = imageLng || inspectionLng;
+            const latitude = imageLat || inspectionLat;
+            const longitude = imageLng || inspectionLng;
 
-          // Render marker only if valid coordinates are found
-          if (latitude !== null && longitude !== null) {
-            return (
-              <Marker key={inspection._id} latitude={latitude} longitude={longitude}>
-                <div
-                  onClick={() => handleMarkerClick(inspection._id)}
-                  onMouseOver={() => setHoveredInspection(inspection.inspaction_name)}
-                  onMouseOut={() => setHoveredInspection(null)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <FontAwesomeIcon icon={faLocationDot} beat style={{ color: "#cb1515" , width: "18px" , height:"18px" }} />
-                  {/* Display tooltip if this inspection is hovered */}
-                  {hoveredInspection === inspection.inspaction_name && (
-                    <div style={{
-                      position: 'absolute',
-                      backgroundColor: '#2f588e',
-                      padding: '5px',
-                      borderRadius: '4px',
-                      top: '-30px',
-                      left: '20px',
-                      boxShadow: '0px 0px 5px 2px rgba(0,0,0,0.2)',
-                      fontSize: '13px',
-                      color: 'white',
-                      width: '80px',
-                      fontFamily: 'sans-serif'
-
-                    }}>
-                      {inspection.inspaction_name}
-                    </div>
-                  )}
-                </div>
-              </Marker>
-            );
-          }
-          return null; // Skip rendering if no valid coordinates
-        })}
+            // Render marker only if valid coordinates are found
+            if (latitude !== null && longitude !== null) {
+              return (
+                <Marker key={inspection._id} latitude={latitude} longitude={longitude}>
+                  <div
+                    onClick={() => handleMarkerClick(inspection._id)}
+                    onMouseOver={() => setHoveredInspection(inspection.inspaction_name)}
+                    onMouseOut={() => setHoveredInspection(null)}
+                    style={{ cursor: 'pointer' }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faLocationDot}
+                      beat
+                      style={{ color: '#cb1515', width: '18px', height: '18px' }}
+                    />
+                    {/* Display tooltip if this inspection is hovered */}
+                    {hoveredInspection === inspection.inspaction_name && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          backgroundColor: '#2f588e',
+                          padding: '5px',
+                          borderRadius: '4px',
+                          top: '-30px',
+                          left: '20px',
+                          boxShadow: '0px 0px 5px 2px rgba(0,0,0,0.2)',
+                          fontSize: '13px',
+                          color: 'white',
+                          width: '80px',
+                          fontFamily: 'sans-serif'
+                        }}
+                      >
+                        {inspection.inspaction_name}
+                      </div>
+                    )}
+                  </div>
+                </Marker>
+              );
+            }
+            return null; // Skip rendering if no valid coordinates
+          })}
 
         {/* Map Controls */}
         <NavigationControl position="top-right" />
