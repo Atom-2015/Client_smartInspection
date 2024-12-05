@@ -61,7 +61,7 @@ import { handleError } from '../../util';
         useEffect(() => {
             (async () => {
                 try {
-                    const response = await axios.get('/api/main/cloudimage', {
+                    const response = await axios.get('http://13.201.248.202:3001/api/main/cloudimage', {
                         headers: {
                             'Content-Type': 'application/json',
                             'x-auth-token': localStorage.getItem('token'),
@@ -138,7 +138,7 @@ import { handleError } from '../../util';
                     console.warn("Shape data is missing, skipping shape fields.");
                 }
         
-                const response = await axios.post('/api/main/updateimage', formData, {
+                const response = await axios.post('http://13.201.248.202:3001/api/main/updateimage', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'x-auth-token': localStorage.getItem('token'),

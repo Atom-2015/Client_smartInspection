@@ -20,7 +20,7 @@ const BarChart = () => {
     console.log(localStorage.getItem('company_id'))
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/main/imagecount', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/imagecount', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
             'x-company_id': localStorage.getItem('company_id') // Dummy company ID

@@ -170,7 +170,7 @@ function FooterImage({ imageidtoparent }) {
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.get('/api/main/detailimagdata', {
+                const response = await axios.get('http://13.201.248.202:3001/api/main/detailimagdata', {
                     headers: {
                         'Content-Type': 'application/json',
                         'x-auth-token': localStorage.getItem('token'),

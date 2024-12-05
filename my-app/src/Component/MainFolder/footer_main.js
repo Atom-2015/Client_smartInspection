@@ -197,7 +197,7 @@ function FooterMain() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/reportinside/getalldata', {
+        const response = await axios.get('http://13.201.248.202:3001/api/reportinside/getalldata', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
             'x-company-id': localStorage.getItem('company_id'),
@@ -240,7 +240,7 @@ function FooterMain() {
 
     try {
       const response = await axios.post(
-        '/api/main/create',
+        'http://13.201.248.202:3001/api/main/create',
         {
           inspaction_name: inspectionName,
           inspaction_type:inspectionType,

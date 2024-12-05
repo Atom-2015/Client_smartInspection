@@ -83,7 +83,7 @@ function CompanyManagement() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        '/api/management/createcompany',
+        'http://13.201.248.202:3001/api/management/createcompany',
         {
           company_name: companyName,
           company_expiry: expiry,

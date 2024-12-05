@@ -11,7 +11,7 @@ function Inspaction_data({ reportId }) {
       try {
         console.log(reportId);
 
-        const response = await axios.get('/api/main/onereport', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/onereport', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
           },

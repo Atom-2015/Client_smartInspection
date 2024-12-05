@@ -22,7 +22,7 @@
       formData.append('image', file);
 
       try {
-        const response = await axios.post('/api/main/storepdfimg', formData, {
+        const response = await axios.post('http://13.201.248.202:3001/api/main/storepdfimg', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'x-auth-token': localStorage.getItem('token'),

@@ -746,7 +746,7 @@ function Loader({ data = [], loading, error, handleLocation , activetabb }) {
   const handleDelete = async (id) => {
 
     try {
-      const response = await axios.delete('/api/main/deletereport', {
+      const response = await axios.delete('http://13.201.248.202:3001/api/main/deletereport', {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           // 'x-report-id': Cookies.get('reportId'),

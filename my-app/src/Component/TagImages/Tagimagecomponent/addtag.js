@@ -34,7 +34,7 @@ function Addtag({imageid}) {
     useEffect(() => {
         (async () => {
             try {
-                const response = await axios.get('/api/tagimage/getalltags', {
+                const response = await axios.get('http://13.201.248.202:3001/api/tagimage/getalltags', {
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
                         'x-report-id': Cookies.get('reportId'),
@@ -67,7 +67,7 @@ function Addtag({imageid}) {
         console.log("Image IDs:", imageidArray);
         console.log("Tags:", tagData);
         try {
-            const response = await axios.post('/api/tagimage/addtagwithimage', { imageid: imageid, tags: tagData }, {
+            const response = await axios.post('http://13.201.248.202:3001/api/tagimage/addtagwithimage', { imageid: imageid, tags: tagData }, {
                 headers: {
                     'x-auth-token': localStorage.getItem('token'),
                     'x-report-id': Cookies.get('reportId'),

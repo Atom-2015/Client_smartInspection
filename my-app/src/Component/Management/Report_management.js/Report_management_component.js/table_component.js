@@ -434,7 +434,7 @@ function TableComponent() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('/api/reportinside/getalldata', {
+        const response = await axios.get('http://13.201.248.202:3001/api/reportinside/getalldata', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
             'x-company-id': localStorage.getItem('company_id'),
@@ -491,7 +491,7 @@ function TableComponent() {
 
   const handleDelete = async () => {
     try {
-      const response = await axios.delete('/api/reportinside/deletecomponent', {
+      const response = await axios.delete('http://13.201.248.202:3001/api/reportinside/deletecomponent', {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'x-component-id': deleteComponentId,

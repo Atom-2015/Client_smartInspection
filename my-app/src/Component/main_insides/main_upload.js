@@ -1218,7 +1218,7 @@ function Main_upload() {
     });
 
     try {
-      const response = await axios.post('/api/main/addimage', formData, {
+      const response = await axios.post('http://13.201.248.202:3001/api/main/addimage', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           'x-report-id': reportId,

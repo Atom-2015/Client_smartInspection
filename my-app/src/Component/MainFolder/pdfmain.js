@@ -21,7 +21,7 @@
         console.log("REport id in pdf data : ",reportId)
         const fetchImageData = async () => {
         try {
-            const response = await axios.get('/api/main/getpdfdata', {
+            const response = await axios.get('http://13.201.248.202:3001/api/main/getpdfdata', {
             headers: {
                 'Content-Type': 'application/json',
                 'x-auth-token': localStorage.getItem('token'),

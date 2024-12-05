@@ -386,7 +386,7 @@ function InputModal({ isVisible, closeModal }) {
     event.preventDefault();
     try {
       const response = await axios.post(
-        '/api/reportinside/stotecomponent',
+        'http://13.201.248.202:3001/api/reportinside/stotecomponent',
         {
           inspactionname: component.inspectionName,
           componentname: component.componentName,

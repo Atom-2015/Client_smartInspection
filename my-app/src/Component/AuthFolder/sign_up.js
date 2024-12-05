@@ -124,7 +124,7 @@ function Sign_up() {
   const SignupUser = async (e) => {
     e.preventDefault(); 
     try {
-      const response = await axios.post('/api/Signup', {
+      const response = await axios.post('http://13.201.248.202:3001/api/Signup', {
         name,
         email,
         password,

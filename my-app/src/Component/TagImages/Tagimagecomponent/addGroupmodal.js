@@ -11,7 +11,7 @@ function AddGroupmodal() {
         e.preventDefault();
         try {
             const response = await axios.post(
-                '/api/tagimage/storegroup',
+                'http://13.201.248.202:3001/api/tagimage/storegroup',
                 { taggroup: groupName },
                 {
                     headers: {

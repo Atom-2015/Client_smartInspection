@@ -346,7 +346,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
         // Fetch data when `clicked` (i.e., `imageid`) changes
         const fetchData = async () => {
             try {
-                const response = await axios.get('/api/main/reportdetail', {
+                const response = await axios.get('http://13.201.248.202:3001/api/main/reportdetail', {
                     headers: {
                         'Content-Type': 'application/json',
                         'x-auth-token': localStorage.getItem('token'),
@@ -396,7 +396,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
 
     const handleSaveClick = async (id) => {
         try {
-            await axios.put(`/api/main/reportdetail/${id}`, editedIssue, {
+            await axios.put(`http://13.201.248.202:3001/api/main/reportdetail/${id}`, editedIssue, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-auth-token': localStorage.getItem('token'),

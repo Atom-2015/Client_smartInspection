@@ -6,7 +6,7 @@ export const DeleteUser = createAsyncThunk(
     "DeleteUser",
     async (UserDelete, { rejectWithValue }) => {
       try {
-        const response = await axios.delete("/api/delteuser", {
+        const response = await axios.delete("http://13.201.248.202:3001/api/delteuser", {
           headers: {
             "x-auth-token": localStorage.getItem("token"),
             'x-delete-userid' : UserDelete 

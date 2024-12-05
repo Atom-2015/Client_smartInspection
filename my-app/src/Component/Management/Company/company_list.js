@@ -163,7 +163,7 @@ function CompanyList() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get('/api/management/companylist', {
+        const response = await axios.get('http://13.201.248.202:3001/api/management/companylist', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
           },

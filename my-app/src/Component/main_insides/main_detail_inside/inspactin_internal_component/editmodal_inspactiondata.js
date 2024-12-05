@@ -22,7 +22,7 @@ function Editmodal_inspactiondata({ showModal, handleClose, data }) {
     try {
       setIsLoading(true); 
       const response = await axios.put(
-        '/api/main/updatedata',  
+        'http://13.201.248.202:3001/api/main/updatedata',  
         formData, 
         {
           headers: {

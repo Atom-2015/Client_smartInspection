@@ -19,7 +19,7 @@ const Tagimage_map = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get('/api/main/cloudimage', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/cloudimage', {
           headers: {
             'Content-Type': 'application/json',
             'x-auth-token': localStorage.getItem('token'),

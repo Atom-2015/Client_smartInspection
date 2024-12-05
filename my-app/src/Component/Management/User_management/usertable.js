@@ -34,7 +34,7 @@ function Usertable() {
       useEffect(() => {
         (async () => {
           try {
-            const response = await axios.get('/api/userlist', {
+            const response = await axios.get('http://13.201.248.202:3001/api/userlist', {
               headers: {
                 'x-auth-token': localStorage.getItem('token'),
               },

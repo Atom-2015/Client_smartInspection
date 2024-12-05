@@ -6,7 +6,7 @@ export const createuser = createAsyncThunk(
   "createuser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/api/management/usermanagement", userData, {
+      const response = await axios.post("http://13.201.248.202:3001/api/management/usermanagement", userData, {
         headers: {
           // 'Content-Type': 'application/json',
           'x-auth-token': localStorage.getItem('token'),

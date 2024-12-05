@@ -258,7 +258,7 @@ const MapboxMap = () => {
   useEffect(() => {
     const fetchInspections = async () => {
       try {
-        const response = await axios.get('/api/main/listing', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/listing', {
           headers: {
             'x-auth-token': localStorage.getItem('token')
           }

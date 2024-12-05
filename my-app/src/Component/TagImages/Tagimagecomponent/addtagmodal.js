@@ -13,7 +13,7 @@ function Addtagmodal({ itemId ,imagetag }) {
         // console.log("Tags are : ", tagname);
 
         try {
-            const response = await axios.post('/api/tagimage/storetag', { tags: tagname }, {
+            const response = await axios.post('http://13.201.248.202:3001/api/tagimage/storetag', { tags: tagname }, {
                 headers: {
                     'Content-Type': 'application/json',
                     'x-auth-token': localStorage.getItem('token'),

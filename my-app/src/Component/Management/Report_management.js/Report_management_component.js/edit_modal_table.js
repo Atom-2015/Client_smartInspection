@@ -59,7 +59,7 @@ function EditModalTable({ compid, closeModal }) {
   useEffect(() => {
     const fetchComponentData = async () => {
       try {
-        const response = await axios.get('/api/reportinside/getsingleCompdata', {
+        const response = await axios.get('http://13.201.248.202:3001/api/reportinside/getsingleCompdata', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
             'x-component-id': compid,
@@ -125,7 +125,7 @@ function EditModalTable({ compid, closeModal }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put('/api/reportinside/updatecomponent', component, {
+      const response = await axios.put('http://13.201.248.202:3001/api/reportinside/updatecomponent', component, {
         headers: {
           'x-auth-token': localStorage.getItem('token'),
           'x-component-id': compid,

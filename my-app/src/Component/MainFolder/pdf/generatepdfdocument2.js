@@ -24,7 +24,7 @@ function Generatepdfdocument2({data , executive_summary2 , id}) {
   useEffect(() => {
     const fetchImageData = async () => {
       try {
-        const response = await axios.get('/api/main/getpdfdata', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/getpdfdata', {
           headers: {
             'Content-Type': 'application/json',
             'x-auth-token': localStorage.getItem('token'),
@@ -49,7 +49,7 @@ function Generatepdfdocument2({data , executive_summary2 , id}) {
   useEffect(() => {
     const fetchExecutiveSummary = async () => {
       try {
-        const response = await axios.get('/api/main/exesummary', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/exesummary', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
             'x-report-id': reportId,

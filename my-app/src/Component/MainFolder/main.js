@@ -159,7 +159,7 @@ function Main() {
       setLoading(true);
 
       try {
-        const response = await axios.get('/api/main/listing', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/listing', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
           },
@@ -197,7 +197,7 @@ function Main() {
   async function searchCompanyData() {
     try {
       const response = await axios.post(
-        '/api/main/searchCompany',
+        'http://13.201.248.202:3001/api/main/searchCompany',
         { companyname: searchcompany },
         {
           headers: {
@@ -221,7 +221,7 @@ function Main() {
 
   async function searchInspactionData() {
     try {
-      const response = await axios.get('/api/main/searchinspaction', {
+      const response = await axios.get('http://13.201.248.202:3001/api/main/searchinspaction', {
         params: {
           param1: inspaction
         },

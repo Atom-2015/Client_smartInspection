@@ -6,7 +6,7 @@ export const createCompany = createAsyncThunk("createCompany",
     async(companydata , {rejectwithvalue})=>{
      try {
         //api key check kar lo
-        const response = await axios.post("/api/management/" , companydata , {
+        const response = await axios.post("http://13.201.248.202:3001/api/management/" , companydata , {
             headers:{
                 'x-auth-token' : localStorage.getItem('token'),
                 

@@ -83,7 +83,7 @@ export const deleteImage = createAsyncThunk(
   "deleteImage",
   async (imagedata, { rejectWithValue }) => {
     try {
-      const response = await axios.delete("/api/main/deleteImage", {
+      const response = await axios.delete("http://13.201.248.202:3001/api/main/deleteImage", {
         headers: {
           "x-auth-token": localStorage.getItem("token"),
           "x-image-id": imagedata.imageId,

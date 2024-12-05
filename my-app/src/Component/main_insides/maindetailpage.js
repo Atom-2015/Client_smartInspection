@@ -189,7 +189,7 @@ function Maindetailpage() {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get('/api/main/getreportname', {
+        const response = await axios.get('http://13.201.248.202:3001/api/main/getreportname', {
           headers: {
             'x-auth-token': localStorage.getItem('token'),
             'x-report-id': Cookies.get('reportId')

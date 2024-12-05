@@ -249,7 +249,7 @@ function Edit_delete({ indexx, itemid, shapeData , setUpdatePrvissue }) {
                 "x-update-shapename": shapeType,
             };
           console.log(headers,"Header Data");
-            const response = await axios.delete("/api/main/deleteshape", { headers });
+            const response = await axios.delete("http://13.201.248.202:3001/api/main/deleteshape", { headers });
 
             if (response.status === 200) {
                 handleSuccess(response.data.message);
@@ -273,7 +273,7 @@ function Edit_delete({ indexx, itemid, shapeData , setUpdatePrvissue }) {
         setDataindex(indexx);
         try {
             const response = await axios.put(
-                "/api/main/updateissue",
+                "http://13.201.248.202:3001/api/main/updateissue",
                 {
                     Component: formData.component,
                     Issue_Type: formData.issueType,
@@ -307,7 +307,7 @@ function Edit_delete({ indexx, itemid, shapeData , setUpdatePrvissue }) {
         setInspactiontype(Cookies.get('inspactiontype'));
         (async () => {
             try {
-                const response = await axios.get('/api/reportinside/componentdata', {
+                const response = await axios.get('http://13.201.248.202:3001/api/reportinside/componentdata', {
                     headers: {
                         'x-auth-token': localStorage.getItem('token'),
                         'x-company-id': localStorage.getItem('company_id'),

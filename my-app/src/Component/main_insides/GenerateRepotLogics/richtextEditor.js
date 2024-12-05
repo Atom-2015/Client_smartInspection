@@ -21,7 +21,7 @@ function RichtextEditor() {
   const handleSubmit = async () => {
     console.log('Submitted Content:', content);
     try {
-      const response = axios.post('/api/main/storeExesummry' , {
+      const response = axios.post('http://13.201.248.202:3001/api/main/storeExesummry' , {
         summrydata:content
       } , {
         headers:{

@@ -6,7 +6,7 @@ export const createFastInspaction = createAsyncThunk(
   "createFastInspaction",
   async (fastInspactionDataall, { rejectWithValue }) => {
     try {
-      const response = await axios.post("/api/main/storefastInspaction", fastInspactionDataall, {
+      const response = await axios.post("http://13.201.248.202:3001/api/main/storefastInspaction", fastInspactionDataall, {
         headers: {
           "x-auth-token": localStorage.getItem("token"),
           'x-image-id' : localStorage.getItem('image-id'),
