@@ -78,6 +78,7 @@ import Company_list from './company_list';
 function CompanyManagement() {
   const [companyName, setCompanyName] = useState('');
   const [expiry, setExpiry] = useState('');
+  const [updatelist , setUpdatelist] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,6 +98,11 @@ function CompanyManagement() {
 
       if (response && response.status === 200) {
         console.log('Company created successfully:', response.data);
+        setUpdatelist(true);
+        setCompanyName("");
+        setExpiry("");
+
+
       } else {
         console.log('Some error from backend:', response);
       }
@@ -172,7 +178,7 @@ function CompanyManagement() {
           Create Company
         </button>
       </form>
-      <Company_list/>
+      <Company_list updatelist ={updatelist} />
     </div>
   );
 }

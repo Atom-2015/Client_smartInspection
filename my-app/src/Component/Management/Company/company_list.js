@@ -153,12 +153,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function CompanyList() {
+function CompanyList({updatelist}) {
   const [companyData, setCompanyData] = useState([]);
   const [getCompanyError, setGetCompanyError] = useState(false);
   const [noCompany, setNoCompany] = useState(false);
   const [currentPage, setCurrentPage] = useState(1); // Current page state
   const companiesPerPage = 4; // Number of companies per page
+
+  console.log("update list is " ,updatelist)
 
   useEffect(() => {
     (async () => {
@@ -179,14 +181,14 @@ function CompanyList() {
           setNoCompany(true);
           return;
         }
-
-        setCompanyData(companyData);
+        
+        setCompanyData(companyData.reverse());
       } catch (error) {
         console.error('Error fetching company data:', error);
         setGetCompanyError(true);
       }
     })();
-  }, []);
+  }, [updatelist]);
 
   // Pagination logic
   const indexOfLastCompany = currentPage * companiesPerPage;
