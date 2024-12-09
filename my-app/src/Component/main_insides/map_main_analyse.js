@@ -20,7 +20,7 @@ const Map_main_analyse = ({ locations }) => {
   //   history.push(`/inspection/${mainImage}`);
   // };
 
-  console.log("locations are .........",locations)
+  // console.log("locations are .........",locations)
 
   return (
     <div className="container-fluid mt-4">

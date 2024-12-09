@@ -243,6 +243,21 @@
 // export default Cloudimage_footer;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import { Stage, Layer, Rect, Line } from 'react-konva';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
