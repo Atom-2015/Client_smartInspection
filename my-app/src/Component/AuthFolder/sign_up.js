@@ -112,6 +112,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import backgroundImage from '../Media/drone1.webp'; 
 import logo from '../Media/atom1.png'; 
+import './siginresponsive.css'
 
 function Sign_up() {
   const [name, setName] = useState('');
@@ -167,12 +168,12 @@ function Sign_up() {
         }}
       ></div>
       
-      <div className="card p-3 shadow-lg w-100  " style={{ maxWidth: '500px', position: 'relative', zIndex: 1 , backgroundColor: '#1e1e1e'  }}>
+      <div className="card p-3 shadow-lg w-100  " id='mainsignup' style={{ maxWidth: '500px', position: 'relative', zIndex: 1 , backgroundColor: '#1e1e1e'  }}>
         <h1 className="text-center text-[30px] mb-1 text-white">Sign Up Here</h1> 
-        <hr></hr>
+        <hr className='text-white m-1'></hr>
 
         <div className='d-flex justify-center '>
-        <div className=''>   <img src={logo} alt="Atom Aviation Logo" className=' rounded-2xl   mb-3 h-[200px]' /> </div>
+        <div className='imgsignup'>   <img src={logo} alt="Atom Aviation Logo" className=' rounded-2xl   mb-3 h-[200px]' /> </div>
         </div>
            
         
@@ -252,7 +253,7 @@ function Sign_up() {
             <button type='reset' className="btn btn-secondary">Reset</button>
           </div>
         </form>
-        <p className="text-center mt-3 text-white">
+        <p className="text-center mt-3 text-white" id='signuppara'>
           Have an account? <Link to="/signin">Sign in here</Link>
         </p>
       </div>

@@ -169,6 +169,8 @@ import axios from 'axios';
 import backgroundImage from '../img/Worldmap.png'; 
 import logo from '../Media/atom1.png';
 import { Oval } from 'react-loader-spinner'; 
+import './siginresponsive.css'
+
 
 function Sign_in() {
     const [email, setEmail] = useState('');
@@ -241,14 +243,14 @@ function Sign_in() {
                     }}
                 ></div>
                 
-                <div className="card p-4 shadow-lg w-100 ]" style={{ maxWidth: '400px', position: 'relative', zIndex: 1 , background: '#1e1e1e' }}>
-                    <div><h1 className='text-center text-white'>Sign In</h1></div>
+                <div className="card p-4 shadow-lg w-100 ]" id='signinMain' style={{ maxWidth: '400px', position: 'relative', zIndex: 1 , background: '#1e1e1e' }}>
+                    <div className='textsign'><h1 className='text-center text-white'>Sign In</h1></div>
                     <div className='d-flex justify-center'>
-                        <img src={logo} alt="Atom Aviation Logo" className='rounded-2xl mb-3 h-[200px]' />
+                        <img src={logo} alt="Atom Aviation Logo" className='rounded-2xl mb-3 h-[200px]' id='imagesign' />
                     </div>
 
                     <form onSubmit={HandleSignin}>
-                        <div className="form-group mb-3">
+                        <div className="form-group mb-3 emailSign">
                             <label className="form-label text-white">Email Address</label>
                             <input 
                                 type="email" 
@@ -260,7 +262,7 @@ function Sign_in() {
                             />
                         </div>
 
-                        <div className="form-group mb-3">
+                        <div className="form-group mb-3 emailSign">
                             <label className="form-label text-white">Password</label>
                             <input 
                                 type="password" 
@@ -278,11 +280,11 @@ function Sign_in() {
                         </div>
                     </form>
 
-                    <p className="text-center mt-3 text-white">
+                    <p className="text-center mt-3 text-white" id='parasign'>
                         Don't have an account? <Link to="/signup" className="text-white">Sign up here</Link>
                     </p>
 
-                    <div className="text-center mt-3">
+                    <div className="text-center mt-3" id='para2sign'>
                         <Link to="/terms" className="text-white me-3">Terms and Conditions</Link>
                         <Link to="/contact" className="text-white">Contact Us</Link>
                     </div>
