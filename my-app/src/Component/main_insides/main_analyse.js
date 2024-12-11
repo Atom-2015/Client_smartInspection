@@ -282,19 +282,19 @@ const handleDragEnd = (e) => {
 
             if (polygonPoints.length > 0 || rectProps) {
 
-                const base64Image = generateImageWithShapes(); // This returns a base64 data URL
-                console.log(`base 64 image : ${base64Image}`);
+                // const base64Image = generateImageWithShapes(); // This returns a base64 data URL
+                // console.log(`base 64 image : ${base64Image}`);
                 
-                const binaryImage = await base64ToBlob(base64Image); // Convert to Blob
-                console.log(`binary image : ${binaryImage}`);
-                formData.append('image', binaryImage, 'image.jpeg'); // Append as binary
+                // const binaryImage = await base64ToBlob(base64Image); // Convert to Blob
+                // console.log(`binary image : ${binaryImage}`);
+                // formData.append('image', binaryImage, 'image.jpeg'); // Append as binary
             } else {
                 formData.append('image', selectedImage); // If no shapes were drawn, just append the original image
             }
 
-            formData.append('oldcloudinary_uri', selectedImage);
-            formData.append('latitude', place.latitude);
-            formData.append('longitude', place.longitude);
+            // formData.append('oldcloudinary_uri', selectedImage);
+            // formData.append('latitude', place.latitude);
+            // formData.append('longitude', place.longitude);
             formData.append('index', indexx);
             formData.append('reportid', reportId);
             formData.append('imageprocessed_id', imageid);
