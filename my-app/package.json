@@ -52,6 +52,7 @@
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
     "rich-text-editor": "^8.0.4",
+    "serve": "^14.2.4",
     "stream-browserify": "^3.0.0",
     "tailwind": "^4.0.0",
     "use-image": "^1.1.1",
@@ -90,4 +91,3 @@
     "webpack-cli": "^5.1.4"
   }
 }
-
