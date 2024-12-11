@@ -56,7 +56,10 @@ function Testmainanlyse() {
     }
 
     const [updateissuestate, setUpdateissuestate] = useState(false);
-
+    const [updateshape , setUpdateshape] = useState(false);
+    const updatefooterimageforshape = (val)=>{
+        setUpdateshape(val)
+    }
 
     useEffect(() => {
         (async () => {
@@ -76,7 +79,7 @@ function Testmainanlyse() {
                 console.log("Error in axios:", error);
             }
         })();
-    }, [updateissuestate]);
+    }, [updateissuestate , updateshape]);
 
 
     const getInspectionCoordinates = () => {
@@ -233,7 +236,7 @@ function Testmainanlyse() {
 
             <div className='flex justify-center'>
                 {data ? (
-                    <Cloudimage_footer data={data} onImageClick={handleImageClick} cloudimage={cloudimage} />
+                    <Cloudimage_footer data={data} onImageClick={handleImageClick} cloudimage={cloudimage} updatefooter={updatefooterimageforshape} />
                 ) : (
                     <p>Loading...</p>
                 )}
