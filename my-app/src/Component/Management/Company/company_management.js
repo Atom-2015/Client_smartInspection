@@ -74,6 +74,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import Company_list from './company_list';
+import './company.css'
 
 function CompanyManagement() {
   const [companyName, setCompanyName] = useState('');
@@ -125,13 +126,13 @@ function CompanyManagement() {
      
         boxShadow: '1px 1px 1px 1px #91e0ff'
         
-      }}
+      }} id='companyres'
     >
-      <h1 className="text-center mb-4" style={{ color: '#ffffff', fontWeight: '700' }}>
+      <h1 className="text-center mb-4  namemargin" style={{ color: '#ffffff', fontWeight: '700' }}>
         Company Management
       </h1>
       <form onSubmit={handleSubmit}>
-        <div className="form-group mb-4">
+        <div className="form-group mb-4" id='namecompany'>
           <label style={{ color: '#ffffff', fontSize: '16px', fontWeight: '600' }}>Company Name</label>
           <input
             type="text"
@@ -147,7 +148,7 @@ function CompanyManagement() {
             }}
           />
         </div>
-        <div className="form-group mb-4">
+        <div className="form-group mb-4" id='namecompany'>
           <label style={{ color: '#ffffff', fontSize: '16px', fontWeight: '600' }}>Expiry Date</label>
           <input
             type="date"

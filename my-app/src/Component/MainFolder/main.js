@@ -139,6 +139,7 @@ import axios from 'axios';
 import Mapbox_map from './mapbox_map';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import './mainrespon.css'
 
 function Main() {
   const [data, setData] = useState([]);
@@ -254,12 +255,12 @@ function Main() {
     <>
 
 
-      <div className=''>
+      <div className='maintorespo'>
 
 
 
         {/* Adjust the height for the map without affecting the form */}
-        <div style={{ width: '100%', height: '550px', minHeight: '550px' }}> 
+        <div style={{ width: '100%', height: '550px', minHeight: '550px' }} id='mapresponsive'> 
           <Mapbox_map latitude={location.latitude} longitude={location.longitude} />
         </div>
 

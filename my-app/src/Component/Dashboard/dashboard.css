@@ -1,0 +1,30 @@
+@media (max-width:768px){
+    #dashbg{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+
+}
+
+
+
+@media (max-width:2560px){
+    #dashbg{
+        display: flex !important;
+    }
+}
+
+@media (max-width:1440px){
+    #dashbg{
+        display: flex !important;
+    }
+}
+
+@media  (max-width:1024px){
+    #dashbg{
+        display: flex !important;
+        flex-direction: column !important;
+        overflow:scroll !important;
+    }
+}

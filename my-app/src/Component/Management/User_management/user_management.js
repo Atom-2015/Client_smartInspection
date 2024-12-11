@@ -373,6 +373,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import Usertable from './usertable';
+import './user.css';
+
 
 function UserManagement() {
   const dispatch = useDispatch();
@@ -458,7 +460,7 @@ function UserManagement() {
 
   return (
     <div>
-    <div style={{ maxWidth: '100%', padding: '20px', margin: 'auto', backgroundColor: '#1e1e1e' , boxShadow: '0px 0px 10px 5px white' , borderRadius: '10px' }}>
+    <div style={{ maxWidth: '100%', padding: '20px', margin: 'auto', backgroundColor: '#1e1e1e' , boxShadow: '0px 0px 10px 5px white' , borderRadius: '10px' }} id='userresponsive'>
       {/* Form section */}
       <div style={{ backgroundColor: '#1e1e1e', padding: '20px', borderRadius: '8px', boxShadow: '0px 4px 6px rgba(0, 0, 0, 1)' }}>
         <h1 style={{ textAlign: 'center', marginBottom: '20px', color: '#ffffff' }}>User Management</h1>

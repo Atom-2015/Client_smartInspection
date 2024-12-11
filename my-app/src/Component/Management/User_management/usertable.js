@@ -3,6 +3,7 @@ import axios from 'axios';
 import {DeleteUser} from "../../../FeatureRedux/analyse_Delete_user";
 import { useDispatch , useSelector } from 'react-redux';
 import {handleError , handleSuccess} from '../../../util'
+import './user.css'
 
 
 function Usertable() {
@@ -80,7 +81,7 @@ function Usertable() {
 
   return (
      
-       <div style={{   padding: '10px', borderRadius: '8px',  marginTop: '8px', maxHeight: '400px',   }}>
+       <div style={{   padding: '10px', borderRadius: '8px',  marginTop: '8px', maxHeight: '400px',   }} id='tableres'>
         <h2 style={{ textAlign: 'center', marginBottom: '10px', color: '#ffffff' }}>User List</h2>
         {/* <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
