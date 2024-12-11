@@ -264,7 +264,7 @@ const capitalspelling = (str) => {
         style={{
           background: 'linear-gradient(90deg, #007bff, #4a7cbf)',
           borderRadius: '8px',
-        }}
+        }} id='analyseresponsive'
       >
         <div className="row align-items-center justify-content-between">
           {/* Title Section */}

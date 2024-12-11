@@ -34,6 +34,7 @@ function Main_analyse() {
     const [indexx, setIndexx] = useState(0);
     const [imageid, setImageid] = useState(0);
     const [inspections, setInspections] = useState([]);
+    
 
     // Load image for Konva with cross-origin support
     const [image] = useImage(imageUrl, 'Anonymous'); // Set crossOrigin to 'Anonymous'

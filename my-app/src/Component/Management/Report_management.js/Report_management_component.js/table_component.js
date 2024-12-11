@@ -422,6 +422,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { handleError, handleSuccess } from '../../../../util';
 import Edit_modal_table from './edit_modal_table';
+import './report.css'
 
 function TableComponent() {
   const [data, setData] = useState([]);
@@ -532,7 +533,7 @@ function TableComponent() {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 tableres">
       <h2 className="text-3xl font-semibold mb-6 text-center text-white">
         Inspections, Components, and Issue Types
       </h2>

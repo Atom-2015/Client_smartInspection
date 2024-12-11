@@ -6,6 +6,7 @@ import  {useHistory}  from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 
+
 const Map_main_analyse = ({ locations }) => {
   const [viewState, setViewState] = useState({
     latitude: 28.6139, // Default latitude (New Delhi)

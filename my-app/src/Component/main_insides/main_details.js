@@ -6,6 +6,7 @@ import External from './main_detail_inside/external';
 import Inspaction_type_group from './main_detail_inside/inspaction_type_group';
 import Inspaction_data from './main_detail_inside/inspaction_data';
 import { ToastContainer } from 'react-toastify';
+import './analyse.css'
 
 function Main_details() {
     

@@ -1169,6 +1169,7 @@ import { ToastContainer } from 'react-toastify';
 import { InfinitySpin } from 'react-loader-spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
+import './analyse.css'
 
 function Main_upload() {
   const [files, setFiles] = useState([]);
@@ -1271,7 +1272,7 @@ function Main_upload() {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden" id='analyseresponsive'>
       <form className="w-1/4 h-full bg-[#1e1e1e] shadow-lg p-4 flex flex-col border-r border-gray-200 overflow-y-auto">
         {/* <h6 className="text-blue-600 mb-4">Upload Method</h6> */}
         {/* <input

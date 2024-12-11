@@ -1,0 +1,25 @@
+@media (max-width:768px){
+#companyres{
+    max-width: 100% !important;
+}
+
+
+}
+
+@media (max-width:2560px){
+    #companyres{
+        max-width: 100% !important;
+        transform: scale(0.87);
+        transform-origin: top;
+        
+    }
+    .namemargin{
+        margin-bottom: 6px !important;
+        
+    }
+    #namecompany{
+        text-align: left !important;
+        margin-bottom: 12px !important;
+    }
+
+}
