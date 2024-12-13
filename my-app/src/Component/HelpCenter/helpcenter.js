@@ -49,7 +49,7 @@ function Helpcenter() {
         {/* Sales Card */}
         <div className="col-md-4 mb-4  ">
           <div className="card shadow-sm">
-            <div className="card-body text-center bg-[#1e1e1e] border">
+            <div className="card-body text-center bg-[#1e1e1e] border h-[246px]">
               <img
                 src="https://via.placeholder.com/50"
                 alt="Sales"
@@ -69,7 +69,7 @@ function Helpcenter() {
         {/* Help & Support Card */}
         <div className="col-md-4 mb-4">
           <div className="card shadow-sm">
-            <div className="card-body text-center bg-[#1e1e1e] border">
+            <div className="card-body text-center bg-[#1e1e1e] border h-[246px]">
               <img
                 src="https://via.placeholder.com/50"
                 alt="Support"
@@ -89,7 +89,7 @@ function Helpcenter() {
         {/* Media & Press Card */}
         <div className="col-md-4 mb-4">
           <div className="card shadow-sm">
-            <div className="card-body text-center bg-[#1e1e1e] border">
+            <div className="card-body text-center bg-[#1e1e1e] border h-[246px]">
               <img
                 src="https://via.placeholder.com/50"
                 alt="Media & Press"

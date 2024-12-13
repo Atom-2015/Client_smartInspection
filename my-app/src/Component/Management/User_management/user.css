@@ -1,14 +1,10 @@
-@media(max-width:2560px){
+@media(max-width:1920px){
    #userresponsive{
-     width: 100% !important;
-    transform: scale(0.8) !important;
-    transform-origin: top !important;
+    zoom: 0.8 !important;
+
    }
 
    #tableres{
-    max-width: 100% !important;
-    transform: scale(0.8) !important;
-    transform-origin: top;
-    margin-top: -90px !important;
+  zoom: 0.9 !important;
    }
 }

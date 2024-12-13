@@ -118,13 +118,13 @@ function CompanyManagement() {
     <div
       className="container mt-2"
       style={{
-        maxWidth: '90%',
+        maxWidth: '100%',
         backgroundColor: '#1e1e1e',
         padding: '10px',
         borderRadius: '10px',
        
      
-        boxShadow: '1px 1px 1px 1px #91e0ff'
+        boxShadow: 'white 0px 0px 10px 5px'
         
       }} id='companyres'
     >

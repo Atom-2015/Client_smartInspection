@@ -245,12 +245,6 @@ function Main() {
   }
 
 
-
-
-
-
-
-
   return (
     <>
 

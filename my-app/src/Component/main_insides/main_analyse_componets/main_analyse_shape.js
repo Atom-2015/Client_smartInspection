@@ -401,6 +401,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { faSquare, faDrawPolygon, faUndo, faSquareXmark, faBolt } from '@fortawesome/free-solid-svg-icons';
 
+import './inneranalyse.css'
+
 function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfalseclicked, onShapeDataChange, shapeDataFromChild, fastInspactionfromchild, sendfastmodal, sendFastInspactionDataToParent }) {
     const stageRef = useRef(null);
     const [mode, setMode] = useState(null);
@@ -620,7 +622,7 @@ function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfals
 
 
     return (
-        <div className={`relative flex flex-col align-center ${selectedImage ? 'w-[60%]' : 'hidden'}`}>
+        <div className={`relative flex flex-col align-center ${selectedImage ? 'w-[51%]' : 'hidden'}`} id='innershaperesponsive'>
             <div className="flex justify-center mb-2 absolute flex-column z-40 gap-2 top-[15px] w-[8%]">
                 <button
                     onClick={() => handleModeChange('rectangle')}
@@ -659,7 +661,7 @@ function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfals
 
             {selectedImage && (
                 <div style={{
-                    width: '800px',
+                    width: '700px',
                     height: '600px',
                     borderRadius: '10px',
                     overflow: 'hidden',
