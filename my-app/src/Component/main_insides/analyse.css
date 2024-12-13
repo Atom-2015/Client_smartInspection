@@ -1,5 +1,27 @@
-@media(max-width:2560px){
+@media(max-width:1920px){
     #analyseresponsive{
-        zoom: 0.75;
+  overflow-y: hidden;
+  zoom: 0.9;
+    }
+    
+    #mapinsiderespon{
+        height: 400px !important;
+        
+    }
+
+    .cloudimgresponsive{
+        zoom: 0.9 !important;
+    }
+
+    /* inner shape of images */
+
+    .maincloud{
+        zoom: 1;
+    }
+
+    /* for maindetails */
+
+    .detailresponsive{
+       zoom: 0.9;
     }
 }

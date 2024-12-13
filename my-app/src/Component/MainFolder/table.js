@@ -715,6 +715,7 @@ import { PDFDownloadLink, PDFViewer, Document, Page } from '@react-pdf/renderer'
 import Generatepdfdocumentmain from './pdfmain'
 import { NavbarOffcanvas } from 'react-bootstrap';
 import Pdfbutton from './pdfbutton';
+import './mainrespon.css'
 
 function Loader({ data = [], loading, error, handleLocation , activetabb }) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -832,7 +833,7 @@ function Loader({ data = [], loading, error, handleLocation , activetabb }) {
  
 
   return (
-    <div className="mt-2">
+    <div className="mt-2 tableresponsive">
       
 
       {loading ? (

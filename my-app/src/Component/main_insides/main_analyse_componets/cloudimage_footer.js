@@ -411,7 +411,7 @@ function Cloudimage_footer({ data, onImageClick , updatefooter }) {
     }, [selectedImageIndex, localData, onImageClick ]);
 
     return (
-        <div className="Insidecomponent w-[100%]">
+        <div className="Insidecomponent w-[100%] cloudimgresponsive">
             {localData.length > 0 && (
                 <div className="bottom-0 left-0 w-full py-2 px-2">
                     <div className="grid gap-[130px] whitespace-nowrap pb-2 grid-cols-10">
