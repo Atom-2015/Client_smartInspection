@@ -598,7 +598,7 @@ function Main_upload() {
     // Send all collected data to the backend in one API call
     if (uploadedData.images.length > 0) {
       try {
-        const response = await axios.post('/api/main/addimage', uploadedData, {
+        const response = await axios.post('http://13.201.248.202:3001/api/main/addimage', uploadedData, {
           headers: {
             'x-report-id': reportId,
             'x-company_id': localStorage.getItem('company_id'),
