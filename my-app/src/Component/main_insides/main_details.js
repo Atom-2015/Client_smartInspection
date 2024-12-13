@@ -17,7 +17,7 @@ function Main_details() {
    
 
     return (
-        <div className="container-fluid mx-auto p-4 flex">
+        <div className="container-fluid mx-auto p-4 flex detailresponsive">
             {/* Left Side */}
             <div className="w-[40%] ">
                 <Inspaction_data  reportId={reportId} />

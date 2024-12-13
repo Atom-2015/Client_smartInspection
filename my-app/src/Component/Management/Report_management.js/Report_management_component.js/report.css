@@ -1,7 +1,13 @@
-@media (max-width:2560px){
+@media (max-width:1920px){
     .tableres{
       zoom: 0.9;
-    }
+      box-shadow: white 0px 0px 10px 5px;
+      margin-top: 10px;
+        }
 
   
+}
+
+.tableres{
+  box-shadow: white 0px 0px 10px 5px;
 }

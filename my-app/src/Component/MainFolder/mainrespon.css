@@ -1,18 +1,24 @@
-@media(max-width:2560px){
+@media(max-width:1920px){
     .maintorespo{
-  zoom: 0.8 !important; 
-  
+
+
 
     }
     #mapresponsive{
+   
+      height: 400px !important;
+      min-height: 400px !important;
       
-       
     }
 
 
     #maprespo{
-        width: calc(100% / 0.9999) !important;
-     
+       
+     height: 400px !important;
+    }
+
+    .tableresponsive{
+     zoom: 0.87;
     }
 }
 
