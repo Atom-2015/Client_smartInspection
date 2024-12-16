@@ -16,5 +16,32 @@
   
   }
 
+  /* left sidebar responsive */
+
+  @media(max-width:768px){
+    #sidebarmobile{
+      width: 18% !important;
+      padding: 5px !important;
+
+    }
+
+    #clicksidebar{
+      padding: 4px 3px !important;
+    
+    }
+
+
+    /* right sidebar responsive */
+
+    #sidebar-right{
+width: 100% !important;
+margin-left: 18% !important;
+overflow: scroll !important;
+    }
+
+
+
+  }
 
   
+

@@ -614,13 +614,13 @@ function TableComponent() {
             <h3 className="text-lg font-semibold mb-4">Are you sure you want to delete?</h3>
             <div className="flex justify-end gap-4">
               <button
-                onClick={closeDeleteModal}
+                onClick={closeDeleteModal()}
                 className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-1 px-4 rounded"
               >
                 Cancel
               </button>
               <button
-                onClick={handleDelete}
+                onClick={handleDelete()}
                 className="bg-red-500 hover:bg-red-700 text-white font-semibold py-1 px-4 rounded"
               >
                 Yes, Delete
@@ -628,7 +628,10 @@ function TableComponent() {
             </div>
           </div>
         </div>
+        
       )}
+
+ 
     </div>
   );
 }
@@ -649,22 +652,3 @@ export default TableComponent;
 
 
 
-<div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-<div className="bg-white p-6 rounded shadow-lg">
-  <h3 className="text-lg font-semibold mb-4"></h3>
-  <div className="flex justify-end gap-4">
-    <button
-      onClick={closeDeleteModal}
-      className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-1 px-4 rounded"
-    >
-      Cancel
-    </button>
-    <button
-      onClick={handleDelete}
-      className="bg-red-500 hover:bg-red-700 text-white font-semibold py-1 px-4 rounded"
-    >
-      Yes, Delete
-    </button>
-  </div>
-</div>
-</div>

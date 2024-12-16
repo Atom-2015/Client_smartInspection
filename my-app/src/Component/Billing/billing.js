@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import  './billing.css'
 
 function Billing() {
   const [isFeaturesModalOpen, setIsFeaturesModalOpen] = useState(false);
@@ -8,12 +9,12 @@ function Billing() {
   const closeFeaturesModal = () => setIsFeaturesModalOpen(false);
 
   return (
-    <div className="container my-4">
+    <div className="container my-4" id='ankittt'>
       {/* Subscription Status Section */}
       <div className="row mb-4">
         <div className="col-md-4">
           <div className="card border-light shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e]" id='firstbill'>
               <h5 className="card-title text-white">Current Status</h5>
               <p className="card-text text-white">View your current billing details here</p>
               <hr />
@@ -37,7 +38,7 @@ function Billing() {
         {/* Trial Card */}
         <div className="col-md-4">
           <div className="card shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e] box-billing">
               <h6 className="font-bold text-white">Trial</h6>
               <p className="text-white">FREE product trial period.</p>
               <hr />

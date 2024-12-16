@@ -360,7 +360,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                     // sendShapeDataGet(response.data.shapeData); 
                     // setShapeDataGet(response.data.shapeData);
                     // const fastInspactionData = response.data.fastInspaction;
-                    // setFastinspaction(fastInspactionData);
+                     // setFastinspaction(fastInspactionData);
                     // sendfastinspaction(fastInspactionData?.shape || []);
 
 
@@ -369,7 +369,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                     setData(response.data.reportData.reportdetail || []);
                     setShapeDataGet(response.data.shapeData);
                     setFastinspaction(response.data.fastInspaction);
-                    sendfastinspaction(fastinspaction.shape);
+                    sendfastinspaction(response.data.fastInspaction.shape);
                     sendShapeDataGet(response.data.shapeData);
                     apiCalledRef.current = true;
                     setUpdatePrvissue(false);
@@ -385,6 +385,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
     
         fetchData();
     }, [clicked , updateissuestate ,updatePrvissue]);  
+
     const toggleAccordion = (index) => {
         setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
     };

@@ -243,6 +243,21 @@
 // export default Cloudimage_footer;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useEffect } from 'react';
 import { Stage, Layer, Rect, Line } from 'react-konva';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -251,7 +266,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteImage } from '../../../FeatureRedux/analyse_delete_image';
 import { handleError, handleSuccess } from '../../../util';
 
-function Cloudimage_footer({ data, onImageClick }) {
+function Cloudimage_footer({ data, onImageClick , updatefooter }) {
     const imagesPerPage = 9;
     const [currentPage, setCurrentPage] = useState(1);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -267,6 +282,11 @@ function Cloudimage_footer({ data, onImageClick }) {
     useEffect(() => {
         if (isDeleted === true) {
             handleSuccess('Image Deleted');
+            updatefooter(true);
+            setTimeout(() => {
+               updatefooter(false)
+
+            }, 100);
         } else if (isDeleted === false) {
             handleError('Image Not Deleted');
         }
@@ -387,7 +407,7 @@ function Cloudimage_footer({ data, onImageClick }) {
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [selectedImageIndex, localData, onImageClick]);
+    }, [selectedImageIndex, localData, onImageClick ]);
 
     return (
         <div className="Insidecomponent w-[100%]">

@@ -137,6 +137,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faMap, faChartLine, faGear, faMoneyBill1, faHandshakeAngle } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
 import ankit from '../Media/thumb-1920-665825.jpg';
+import './sidebar.css'
+
 
 function Sidebar() {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -185,7 +187,7 @@ function Sidebar() {
                 padding: '20px',
                 alignItems: 'center',
                 zIndex: '1',
-            }}>
+            }} id='sidebarmobile'>
                 {/* User Icon */}
                 <div
                     className="mb-5 mt-3 relative group"
@@ -201,10 +203,10 @@ function Sidebar() {
                     {/* Main Link */}
                     <div className="mb-4 relative group">
                         <NavLink
-                            to='/main'
+                            to='/main'  id='clicksidebar'
                             className={({ isActive }) =>
                                 `block py-2 px-4 rounded-lg ${isActive ? "bg-blue-600 text-white" : "text-white hover:bg-gray-800"}`
-                            }
+                            } 
                         >
                             <FontAwesomeIcon icon={faMap} className="mr-2 text-white" />
                         </NavLink>
@@ -268,7 +270,7 @@ function Sidebar() {
             </div>
 
             {/* Content Area */}
-            <div className="p-[9px] box-border" style={{
+            <div className="p-[9px] box-border" id='sidebar-right' style={{
                 width: '94%',
                 marginLeft: '6%',
                 height: '100vh',
@@ -354,3 +356,12 @@ function Sidebar() {
 }
 
 export default Sidebar;
+
+
+
+
+
+
+
+
+
