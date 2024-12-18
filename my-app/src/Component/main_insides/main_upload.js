@@ -497,245 +497,283 @@
 
 
 
-import React, { useState, useRef } from 'react';
-import exifParser from 'exif-parser';
-import { useLocation } from 'react-router-dom';
-import axios from 'axios';
-import { handleError, handleSuccess } from '../../util';
-import { ToastContainer } from 'react-toastify';
-import { InfinitySpin } from 'react-loader-spinner';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
-import './analyse.css';
-import Detailuploadleft from './mainuploadComponent/detailuploadleft';
 
-function Main_upload() {
-  const [files, setFiles] = useState([]);
-  const [metaDataList, setMetaDataList] = useState([]); 
-  const [isLoading, setIsLoading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState({}); // Holds progress for each file
-  const [uploadfiledata, setUploadfiledata] = useState([]);
-  const location = useLocation();
-  const reportId = location.state?.id;
-  const dropAreaRef = useRef(null);
 
-  // Function to extract metadata (latitude and longitude)
-  const extractMetadata = (file) => {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      const arrayBuffer = e.target.result;
-      const parser = exifParser.create(arrayBuffer);
-      const exifData = parser.parse();
-      const { GPSLatitude, GPSLongitude } = exifData.tags || {};
-      const metadata = {
-        latitude: GPSLatitude || 'Not available',
-        longitude: GPSLongitude || 'Not available',
-      };
-      setMetaDataList((prev) => [...prev, metadata]); 
-    };
-    reader.readAsArrayBuffer(file);
-  };
 
-  // Handle file selection
-  const handleFileChange = (event) => {
-    const selectedFiles = Array.from(event.target.files);
-    selectedFiles.forEach((file) => extractMetadata(file));
-    setFiles((prev) => [...prev, ...selectedFiles]);
-  };
 
-  // Function to upload image to Cloudinary
-  const uploadToCloudinary = async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', 'ml_default'); 
 
-    try {
-      const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/dziyqo8zo/upload', 
-        formData, 
-        {
-          headers: { 'Content-Type': 'multipart/form-data' },
-          onUploadProgress: (progressEvent) => {
-            const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-            setUploadProgress((prevProgress) => ({
-              ...prevProgress,
-              [file.name]: percentCompleted, // Update the progress for the current file
-            }));
-          },
-        }
-      );
-      return response.data.secure_url;
-    } catch (error) {
-      console.error('Error uploading to Cloudinary:', error);
-      return null;
-    }
-  };
 
-  const [images , setImages] =useState();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useRef } from 'react';
+// import exifParser from 'exif-parser';
+// import { useLocation } from 'react-router-dom';
+// import axios from 'axios';
+// import { handleError, handleSuccess } from '../../util';
+// import { ToastContainer } from 'react-toastify';
+// import { InfinitySpin } from 'react-loader-spinner';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faImage } from '@fortawesome/free-solid-svg-icons';
+// import './analyse.css';
+// import Detailuploadleft from './mainuploadComponent/detailuploadleft';
+
+// function Main_upload() {
+//   const [files, setFiles] = useState([]);
+//   const [metaDataList, setMetaDataList] = useState([]); 
+//   const [isLoading, setIsLoading] = useState(false);
+//   const [uploadProgress, setUploadProgress] = useState({}); // Holds progress for each file
+//   const [uploadfiledata, setUploadfiledata] = useState([]);
+//   const location = useLocation();
+//   const reportId = location.state?.id;
+//   const dropAreaRef = useRef(null);
+
+//   // Function to extract metadata (latitude and longitude)
+//   const extractMetadata = (file) => {
+//     const reader = new FileReader();
+//     reader.onload = function (e) {
+//       const arrayBuffer = e.target.result;
+//       const parser = exifParser.create(arrayBuffer);
+//       const exifData = parser.parse();
+//       const { GPSLatitude, GPSLongitude } = exifData.tags || {};
+//       const metadata = {
+//         latitude: GPSLatitude || 'Not available',
+//         longitude: GPSLongitude || 'Not available',
+//       };
+//       setMetaDataList((prev) => [...prev, metadata]); 
+//     };
+//     reader.readAsArrayBuffer(file);
+//   };
+
+//   // Handle file selection
+//   const handleFileChange = (event) => {
+//     const selectedFiles = Array.from(event.target.files);
+//     selectedFiles.forEach((file) => extractMetadata(file));
+//     setFiles((prev) => [...prev, ...selectedFiles]);
+//   };
+
+//   // Function to upload image to Cloudinary
+//   const uploadToCloudinary = async (file) => {
+//     const formData = new FormData();
+//     formData.append('file', file);
+//     formData.append('upload_preset', 'ml_default'); 
+
+//     try {
+//       const response = await axios.post(
+//         'https://api.cloudinary.com/v1_1/dziyqo8zo/upload', 
+//         formData, 
+//         {
+//           headers: { 'Content-Type': 'multipart/form-data' },
+//           onUploadProgress: (progressEvent) => {
+//             const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+//             setUploadProgress((prevProgress) => ({
+//               ...prevProgress,
+//               [file.name]: percentCompleted, // Update the progress for the current file
+//             }));
+//           },
+//         }
+//       );
+//       return response.data.secure_url;
+//     } catch (error) {
+//       console.error('Error uploading to Cloudinary:', error);
+//       return null;
+//     }
+//   };
+
+//   const [images , setImages] =useState();
  
-  const handleUploadClick = async () => {
-    setIsLoading(true);
-    const uploadedData = { images: [] };  // Add 'images' wrapper as required by the backend
+//   const handleUploadClick = async () => {
+//     setIsLoading(true);
+//     const uploadedData = { images: [] };  // Add 'images' wrapper as required by the backend
 
-    // Upload all images to Cloudinary and collect URLs + metadata
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      const uploadedUrl = await uploadToCloudinary(file);
-      const metadata = metaDataList[i] || {};
+//     // Upload all images to Cloudinary and collect URLs + metadata
+//     for (let i = 0; i < files.length; i++) {
+//       const file = files[i];
+//       const uploadedUrl = await uploadToCloudinary(file);
+//       const metadata = metaDataList[i] || {};
 
-      if (uploadedUrl) {
-        const fileData = {
-          url: uploadedUrl,
-          latitude: metadata.latitude,
-          longitude: metadata.longitude,
-        };
-        uploadedData.images.push(fileData);  // Push into the 'images' array
-      }
-    }
+//       if (uploadedUrl) {
+//         const fileData = {
+//           url: uploadedUrl,
+//           latitude: metadata.latitude,
+//           longitude: metadata.longitude,
+//         };
+//         uploadedData.images.push(fileData);  // Push into the 'images' array
+//       }
+//     }
 
-    setImages(uploadedData.images);
+//     setImages(uploadedData.images);
 
-    // Send all collected data to the backend in one API call
-    if (uploadedData.images.length > 0) {
-      try {
-        const response = await axios.post('/api/main/addimage', uploadedData, {
-          headers: {
-            'x-report-id': reportId,
-            'x-company_id': localStorage.getItem('company_id'),
-            'x-auth-token': localStorage.getItem('token'),
-          },
-        });
-        console.log('Data successfully sent to the API:', response.data);
-        handleSuccess('Images uploaded successfully');
-      } catch (error) {
-        console.error('Error sending data to API:', error);
-        handleError('Error while uploading the files.');
-      }
-    } else {
-      handleError('No valid images to upload.');
-    }
+//     // Send all collected data to the backend in one API call
+//     if (uploadedData.images.length > 0) {
+//       try {
+//         const response = await axios.post('/api/main/addimage', uploadedData, {
+//           headers: {
+//             'x-report-id': reportId,
+//             'x-company_id': localStorage.getItem('company_id'),
+//             'x-auth-token': localStorage.getItem('token'),
+//           },
+//         });
+//         console.log('Data successfully sent to the API:', response.data);
+//         handleSuccess('Images uploaded successfully');
+//       } catch (error) {
+//         console.error('Error sending data to API:', error);
+//         handleError('Error while uploading the files.');
+//       }
+//     } else {
+//       handleError('No valid images to upload.');
+//     }
 
-    setIsLoading(false);
-  };
+//     setIsLoading(false);
+//   };
 
-  const handleCancelUpload = (index) => {
-    setFiles((prev) => prev.filter((_, i) => i !== index));
-    setMetaDataList((prev) => prev.filter((_, i) => i !== index));
-  };
+//   const handleCancelUpload = (index) => {
+//     setFiles((prev) => prev.filter((_, i) => i !== index));
+//     setMetaDataList((prev) => prev.filter((_, i) => i !== index));
+//   };
 
-  const handleDeleteAll = () => {
-    setFiles([]);
-    setMetaDataList([]);
-    setUploadProgress({});
-    setUploadfiledata([]);
-  };
+//   const handleDeleteAll = () => {
+//     setFiles([]);
+//     setMetaDataList([]);
+//     setUploadProgress({});
+//     setUploadfiledata([]);
+//   };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-    dropAreaRef.current.classList.add('bg-blue-100');
-  };
+//   const handleDragOver = (e) => {
+//     e.preventDefault();
+//     dropAreaRef.current.classList.add('bg-blue-100');
+//   };
 
-  const handleDragLeave = () => {
-    dropAreaRef.current.classList.remove('bg-blue-100');
-  };
+//   const handleDragLeave = () => {
+//     dropAreaRef.current.classList.remove('bg-blue-100');
+//   };
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    dropAreaRef.current.classList.remove('bg-blue-100');
-    const droppedFiles = Array.from(e.dataTransfer.files);
-    droppedFiles.forEach((file) => extractMetadata(file));
-    setFiles((prev) => [...prev, ...droppedFiles]);
-  };
+//   const handleDrop = (e) => {
+//     e.preventDefault();
+//     dropAreaRef.current.classList.remove('bg-blue-100');
+//     const droppedFiles = Array.from(e.dataTransfer.files);
+//     droppedFiles.forEach((file) => extractMetadata(file));
+//     setFiles((prev) => [...prev, ...droppedFiles]);
+//   };
 
-  return (
-    <div className="flex h-screen overflow-hidden" id='analyseresponsive'>
-      <Detailuploadleft filelength={files.length} />
-      <div className="w-3/4 p-6 bg-[#1e1e1e]">
-        <div
-          ref={dropAreaRef}
-          className="w-full h-64 border-dashed border-2 border-gray-300 flex flex-col items-center justify-center mb-2"
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onDrop={handleDrop}
-        >
-          <h3 className="text-white">Drag & Drop Files  Here</h3>
-          <p className='text-white'>Or click below to upload</p>
-          <input
-            type="file"
-            className="hidden"
-            id="file-upload"
-            multiple
-            onChange={handleFileChange}
-          />
-          <label
-            htmlFor="file-upload"
-            className="bg-green-500 text-white px-4 py-2 rounded-lg cursor-pointer"
-          >
-            Browse Files
-          </label>
-        </div>
+//   return (
+//     <div className="flex h-screen overflow-hidden" id='analyseresponsive'>
+//       <Detailuploadleft filelength={files.length} />
+//       <div className="w-3/4 p-6 bg-[#1e1e1e]">
+//         <div
+//           ref={dropAreaRef}
+//           className="w-full h-64 border-dashed border-2 border-gray-300 flex flex-col items-center justify-center mb-2"
+//           onDragOver={handleDragOver}
+//           onDragLeave={handleDragLeave}
+//           onDrop={handleDrop}
+//         >
+//           <h3 className="text-white">Drag & Drop Files  Here</h3>
+//           <p className='text-white'>Or click below to upload</p>
+//           <input
+//             type="file"
+//             className="hidden"
+//             id="file-upload"
+//             multiple
+//             onChange={handleFileChange}
+//           />
+//           <label
+//             htmlFor="file-upload"
+//             className="bg-green-500 text-white px-4 py-2 rounded-lg cursor-pointer"
+//           >
+//             Browse Files
+//           </label>
+//         </div>
 
-        {files.length > 0 && (
-          <>
-            <div className="w-full flex justify-between mb-4">
-              <button
-                onClick={handleUploadClick}
-                disabled={isLoading}
-                className="bg-green-500 text-white px-4 py-2 rounded"
-              >
-                Click to Upload
-              </button>
-              <button
-                onClick={handleDeleteAll}
-                className="bg-red-500 text-white px-4 py-2 rounded"
-              >
-                Delete All
-              </button>
-            </div>
+//         {files.length > 0 && (
+//           <>
+//             <div className="w-full flex justify-between mb-4">
+//               <button
+//                 onClick={handleUploadClick}
+//                 disabled={isLoading}
+//                 className="bg-green-500 text-white px-4 py-2 rounded"
+//               >
+//                 Click to Upload
+//               </button>
+//               <button
+//                 onClick={handleDeleteAll}
+//                 className="bg-red-500 text-white px-4 py-2 rounded"
+//               >
+//                 Delete All
+//               </button>
+//             </div>
 
-            <div className="w-[100%] bg-[#1e1e1e] grid grid-cols-2 border rounded p-3 shadow-lg">
-              {files.map((file, index) => (
-                <div key={index} className="flex justify-between items-center align-middle gap-10 border-b p-2">
-                  <div>
-                    <FontAwesomeIcon icon={faImage} className='text-white' />
-                    <h6 className="text-blue-600 ">{file.name}</h6>
-                  </div>
-                  <button
-                    onClick={() => handleCancelUpload(index)}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    Cancel
-                  </button>
-                  {/* Progress Bar */}
-                  <div className="w-full mt-2">
-                    <div className="relative w-full h-2 bg-gray-300 rounded">
-                      <div
-                        className="absolute top-0 left-0 h-full bg-green-500"
-                        style={{ width: `${uploadProgress[file.name] || 0}%` }}
-                      ></div>
-                    </div>
-                    <span className="text-sm text-white">
-                      {uploadProgress[file.name]}%
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
+//             <div className="w-[100%] bg-[#1e1e1e] grid grid-cols-2 border rounded p-3 shadow-lg">
+//               {files.map((file, index) => (
+//                 <div key={index} className="flex justify-between items-center align-middle gap-10 border-b p-2">
+//                   <div>
+//                     <FontAwesomeIcon icon={faImage} className='text-white' />
+//                     <h6 className="text-blue-600 ">{file.name}</h6>
+//                   </div>
+//                   <button
+//                     onClick={() => handleCancelUpload(index)}
+//                     className="text-red-500 hover:text-red-700"
+//                   >
+//                     Cancel
+//                   </button>
+//                   {/* Progress Bar */}
+//                   <div className="w-full mt-2">
+//                     <div className="relative w-full h-2 bg-gray-300 rounded">
+//                       <div
+//                         className="absolute top-0 left-0 h-full bg-green-500"
+//                         style={{ width: `${uploadProgress[file.name] || 0}%` }}
+//                       ></div>
+//                     </div>
+//                     <span className="text-sm text-white">
+//                       {uploadProgress[file.name]}%
+//                     </span>
+//                   </div>
+//                 </div>
+//               ))}
+//             </div>
+//           </>
+//         )}
 
-        {isLoading && (
-          <div className="w-full flex justify-center">
-            <InfinitySpin color="green" width="100" />
-          </div>
-        )}
-        <ToastContainer />
-      </div>
-    </div>
-  );
-}
+//         {isLoading && (
+//           <div className="w-full flex justify-center">
+//             <InfinitySpin color="green" width="100" />
+//           </div>
+//         )}
+//         <ToastContainer />
+//       </div>
+//     </div>
+//   );
+// }
 
-export default Main_upload;
+// export default Main_upload;
 
 
 
@@ -985,3 +1023,269 @@ export default Main_upload;
 // }
 
 // export default Main_upload;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState, useRef } from 'react';
+import exifParser from 'exif-parser';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { handleError, handleSuccess } from '../../util';
+import { ToastContainer } from 'react-toastify';
+import { InfinitySpin } from 'react-loader-spinner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import './analyse.css';
+import Detailuploadleft from './mainuploadComponent/detailuploadleft';
+
+function Main_upload() {
+  const [files, setFiles] = useState([]);
+  const [metaDataList, setMetaDataList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState({});
+  const [uploadedFiles, setUploadedFiles] = useState([]); // Stores uploaded files
+  const [tabMinimized, setTabMinimized] = useState(false); // Track minimized state
+  const location = useLocation();
+  const reportId = location.state?.id;
+  const dropAreaRef = useRef(null);
+
+  const extractMetadata = (file) => {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const arrayBuffer = e.target.result;
+      const parser = exifParser.create(arrayBuffer);
+      const exifData = parser.parse();
+      const { GPSLatitude, GPSLongitude } = exifData.tags || {};
+      const metadata = {
+        latitude: GPSLatitude || 'Not available',
+        longitude: GPSLongitude || 'Not available',
+      };
+      setMetaDataList((prev) => [...prev, metadata]);
+    };
+    reader.readAsArrayBuffer(file);
+  };
+
+  const handleFileChange = (event) => {
+    const selectedFiles = Array.from(event.target.files);
+    selectedFiles.forEach((file) => extractMetadata(file));
+    setFiles((prev) => [...prev, ...selectedFiles]);
+  };
+
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'ml_default');
+
+    try {
+      const response = await axios.post(
+        'https://api.cloudinary.com/v1_1/dziyqo8zo/upload',
+        formData,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+          onUploadProgress: (progressEvent) => {
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+
+            // Update progress
+            setUploadProgress((prevProgress) => ({
+              ...prevProgress,
+              [file.name]: percentCompleted,
+            }));
+
+            // Remove file if upload is complete
+            if (percentCompleted === 100) {
+              setFiles((prev) =>
+                prev.filter((item) => item.name !== file.name)
+              );
+            }
+          },
+        }
+      );
+      return response.data.secure_url;
+    } catch (error) {
+      console.error('Error uploading to Cloudinary:', error);
+      return null;
+    }
+  };
+
+  const handleUploadClick = async () => {
+    setIsLoading(true);
+    const uploadedData = { images: [] };
+    const remainingFiles = [...files]; // Make a copy of files
+  
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const uploadedUrl = await uploadToCloudinary(file);
+      const metadata = metaDataList[i] || {};
+  
+      if (uploadedUrl) {
+        const fileData = {
+          url: uploadedUrl,
+          latitude: metadata.latitude,
+          longitude: metadata.longitude,
+        };
+        uploadedData.images.push(fileData);
+        setUploadedFiles((prev) => [...prev, fileData]); // Add to uploaded files
+  
+        // Remove the file from the list
+        remainingFiles.splice(remainingFiles.indexOf(file), 1);
+        setFiles(remainingFiles);
+      }
+    }
+  
+    if (uploadedData.images.length > 0) {
+      try {
+        await axios.post('http://13.201.248.202:3001/api/main/addimage', uploadedData, {
+          headers: {
+            'x-report-id': reportId,
+            'x-company_id': localStorage.getItem('company_id'),
+            'x-auth-token': localStorage.getItem('token'),
+          },
+        });
+        handleSuccess('Images uploaded successfully');
+      } catch (error) {
+        console.error('Error sending data to API:', error);
+        handleError('Error while uploading the files.');
+      }
+    } else {
+      handleError('No valid images to upload.');
+    }
+  
+    setMetaDataList([]); // Clear metadata
+    setIsLoading(false);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    dropAreaRef.current.classList.add('bg-blue-100');
+  };
+
+  const handleDragLeave = () => {
+    dropAreaRef.current.classList.remove('bg-blue-100');
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    dropAreaRef.current.classList.remove('bg-blue-100');
+    const droppedFiles = Array.from(e.dataTransfer.files);
+    droppedFiles.forEach((file) => extractMetadata(file));
+    setFiles((prev) => [...prev, ...droppedFiles]);
+  };
+
+  return (
+    <div className="flex h-screen overflow-hidden" id="analyseresponsive">
+      <Detailuploadleft filelength={files.length} />
+      <div className="w-3/4 p-6 bg-[#1e1e1e]">
+        <div
+          ref={dropAreaRef}
+          className="w-full h-64 border-dashed border-2 border-gray-300 flex flex-col items-center justify-center mb-2"
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
+          <h3 className="text-white">Drag & Drop Files Here</h3>
+          <p className="text-white">Or click below to upload</p>
+          <input
+            type="file"
+            className="hidden"
+            id="file-upload"
+            multiple
+            onChange={handleFileChange}
+          />
+          <label
+            htmlFor="file-upload"
+            className="bg-green-500 text-white px-4 py-2 rounded-lg cursor-pointer"
+          >
+            Browse Files
+          </label>
+        </div>
+
+        {files.length > 0 && (
+          <div className="fixed bottom-0 right-0 w-72 bg-gray-900 text-white p-4 shadow-lg rounded-t-lg">
+            <div className="flex justify-between items-center mb-2">
+              <h4>Uploading Files</h4>
+              <button onClick={() => setTabMinimized(true)} className="text-white">
+                <FontAwesomeIcon icon={faChevronDown} />
+              </button>
+            </div>
+            {files.map((file, index) => (
+              <div key={index} className="mb-2">
+                <div className="flex justify-between items-center">
+                  <span>{file.name}</span>
+                </div>
+                <div className="w-full bg-gray-700 h-2 rounded mt-1">
+                  <div
+                    className="bg-green-500 h-2 rounded"
+                    style={{ width: `${uploadProgress[file.name] || 0}%` }}
+                  ></div>
+                </div>
+              </div>
+            ))}
+            <button
+              onClick={handleUploadClick}
+              className="bg-green-500 w-full text-center p-2 mt-4 rounded"
+              disabled={isLoading}
+            >
+              Upload All
+            </button>
+          </div>
+        )}
+        <ToastContainer />
+      </div>
+    </div>
+  );
+}
+
+export default Main_upload;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
