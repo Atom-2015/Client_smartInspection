@@ -7,6 +7,7 @@ import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
+
 const Tagimage_map = () => {
   const [viewState, setViewState] = useState({
     latitude: 28.6139, // Default latitude (New Delhi)

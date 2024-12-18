@@ -9,7 +9,7 @@ const ButtonAI = () => {
     return (
         <div>
             {/* {showButton && <button>Special Button</button>} */}
-            <button  >AI Inspaction</button>
+            <button  >AI Inspection</button>
         </div>
     );
 };

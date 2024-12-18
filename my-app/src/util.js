@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 // Function to show success message
 export const handleSuccess = (msg) => {
     toast.success(msg, {
+        
         position: "top-right",
         autoClose: 5000,  
         hideProgressBar: false,
@@ -25,3 +26,9 @@ export const handleError = (msg) => {
         progress: undefined,
     });
 }
+
+
+
+
+
+
