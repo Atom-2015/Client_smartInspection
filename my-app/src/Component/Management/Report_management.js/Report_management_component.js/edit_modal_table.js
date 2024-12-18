@@ -47,6 +47,7 @@ import axios from 'axios';
 import { handleError, handleSuccess } from '../../../../util';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import './report.css'
 
 function EditModalTable({ compid, closeModal }) {
   const [component, setComponent] = useState({
@@ -163,7 +164,7 @@ function EditModalTable({ compid, closeModal }) {
   }, []);
   return (
      
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-20 tableres" id='pilot'>
       <div ref={modalRef} className="w-[1550px]  max-h-[100%] p-3 bg-white rounded-lg shadow-lg overflow-y-auto relative">
       <button
               type="button"

@@ -274,12 +274,12 @@ function Sidebar() {
                 width: '94%',
                 marginLeft: '6%',
                 height: '100vh',
-                overflow: 'hidden',
+                overflowY: 'scroll',
                 background: '#1e1e1e',
                 backdropFilter: 'blur(10px)',
                 boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
                 zIndex: '0'
-            }}>
+            }} >
                 <Outlet />
             </div>
 

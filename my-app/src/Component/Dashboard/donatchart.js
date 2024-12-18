@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import axios from 'axios';
+import "./dashboard.css";
 
 // Register required Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
@@ -101,7 +102,7 @@ const DashboardCharts = () => {
         gap: '10px',
         padding: '20px',
         justifyItems: 'center',
-      }}
+      }} id='dashbg'
     >
       {/* Donut Chart Card */}
       <div

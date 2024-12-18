@@ -38,7 +38,7 @@ function Billing() {
         {/* Trial Card */}
         <div className="col-md-4">
           <div className="card shadow-sm">
-            <div className="card-body bg-[#1e1e1e] box-billing">
+            <div className="card-body bg-[#1e1e1e] box-billing h-[283px]">
               <h6 className="font-bold text-white">Trial</h6>
               <p className="text-white">FREE product trial period.</p>
               <hr />
@@ -53,7 +53,7 @@ function Billing() {
         {/* On-Demand Pricing Card */}
         <div className="col-md-4">
           <div className="card shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e] h-[283px]">
               <h6 className="font-bold text-white">On-Demand Pricing</h6>
               <p className="text-white">It’s straightforward: you pay a fixed rate per asset or image.</p>
               <hr />
@@ -67,7 +67,7 @@ function Billing() {
         {/* Yearly Enterprise Subscription Card */}
         <div className="col-md-4">
           <div className="card shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e] h-[283px]">
               <h6 className="font-bold text-white">Yearly Enterprise Subscription</h6>
               <p className="text-white">For large amounts of data. You pay a tailor-made pricing plan.</p>
               <hr />

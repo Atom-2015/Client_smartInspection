@@ -312,34 +312,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
         };
     }, []);
 
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //             const response = await axios.get('/api/main/reportdetail', {
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     'x-auth-token': localStorage.getItem('token'),
-    //                     'image-id': localStorage.getItem('image-id'),
-    //                 },
-    //             });
-    //             if (response.data) {
-    //                 handleSuccess('Report Fetched');
-    //                 setData(response.data.reportData.reportdetail || []);
-    //                 setShapeDataGet(response.data.shapeData);
-    //                 setFastinspaction(response.data.fastInspaction);
-    //                 sendfastinspaction(fastinspaction.shape);
-    //                 sendShapeDataGet(response.data.shapeData);
-    //                 apiCalledRef.current = true;
-    //                 // console.warn(`fastinspactionfastinspactionfastinspaction${fastinspaction.shape}`);
-    //                 // alert(response.fastInspaction.shape?'yes':'NO')
-    //             } else {
-    //                 handleError('No response from the API');
-    //             }
-    //         } catch (error) {
-    //             handleError(`Error: ${error.message}`);
-    //         }
-    //     })();
-    // }, [clicked]);
+   
 
 
     useEffect(() => {
@@ -375,11 +348,11 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                     setUpdatePrvissue(false);
                      
                 } else {
-                    handleError('No response from the API');
+                    // handleError('No response from the API');
                 }
                 updateissuestatebyfalse(false)
             } catch (error) {
-                handleError(`Error: ${error.message}`);
+                // handleError(`Error: ${error.message}`);
             }
         };
     

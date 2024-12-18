@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Ensure Bootstrap is imported
 import  {useHistory}  from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import './analyse.css'
+
 
 const Map_main_analyse = ({ locations }) => {
   const [viewState, setViewState] = useState({
@@ -26,7 +28,7 @@ const Map_main_analyse = ({ locations }) => {
     <div className="container-fluid mt-4">
       <div className="w-full flex justify-center">
         <div className="w-full ">
-          <div style={{ height: '580px', width: '100%', border: '1px solid #ddd' }}>
+          <div style={{ height: '580px', width: '100%', border: '1px solid #ddd' }} id='mapinsiderespon'>
             <Map
               {...viewState}
               mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN || 'pk.eyJ1IjoibmlraXRhY2hhdWhhbjEyMyIsImEiOiJjbGwwaWxrdzEwZW02M2pxcjN4eHo1bDR1In0.I4yZh8CAQOz2c63IsCBOpg'}

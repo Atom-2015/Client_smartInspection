@@ -279,18 +279,18 @@ function Cloudimage_footer({ data, onImageClick , updatefooter }) {
     const dispatch = useDispatch();
     const { isLoading, isError, errorMessage, isDeleted } = useSelector((state) => state.DeleteImage);
 
-    useEffect(() => {
-        if (isDeleted === true) {
-            handleSuccess('Image Deleted');
-            updatefooter(true);
-            setTimeout(() => {
-               updatefooter(false)
+    // useEffect(() => {
+    //     if (isDeleted === true) {
+    //         handleSuccess('Image Deleted');
+    //         updatefooter(true);
+    //         setTimeout(() => {
+    //            updatefooter(false)
 
-            }, 100);
-        } else if (isDeleted === false) {
-            handleError('Image Not Deleted');
-        }
-    }, [isDeleted]);
+    //         }, 100);
+    //     } else if (isDeleted === false) {
+    //         handleError('Image Not Deleted');
+    //     }
+    // }, [isDeleted]);
 
     const getCurrentPageImages = () => {
         const startIndex = (currentPage - 1) * imagesPerPage;
@@ -333,6 +333,7 @@ function Cloudimage_footer({ data, onImageClick , updatefooter }) {
                 const updatedData = prev.filter((_, i) => i !== index);
 
                 if (updatedData.length > 0) {
+                    handleSuccess('Image Deleted');
                     const nextIndex = index === prev.length - 1 ? index - 1 : index;
                     const nextImageUrl = updatedData[nextIndex];
                     setSelectedImageIndex(nextIndex);
@@ -410,7 +411,7 @@ function Cloudimage_footer({ data, onImageClick , updatefooter }) {
     }, [selectedImageIndex, localData, onImageClick ]);
 
     return (
-        <div className="Insidecomponent w-[100%]">
+        <div className="Insidecomponent w-[100%] cloudimgresponsive">
             {localData.length > 0 && (
                 <div className="bottom-0 left-0 w-full py-2 px-2">
                     <div className="grid gap-[130px] whitespace-nowrap pb-2 grid-cols-10">

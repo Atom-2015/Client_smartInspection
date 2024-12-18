@@ -232,6 +232,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import './mainrespon.css'
 
 const MapboxMap = () => {
   const [viewState, setViewState] = useState({
@@ -281,7 +282,7 @@ const MapboxMap = () => {
   };
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
+    <div style={{ height: '100%', width: '100%' }} id='maprespo'>
       <Map
         {...viewState}
         mapboxAccessToken={

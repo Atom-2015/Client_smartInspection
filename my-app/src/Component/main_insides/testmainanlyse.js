@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 import Cookies from 'js-cookie';
 import MainAnalyseShape from './main_analyse_componets/main_analyse_shape';
 import { handleError } from '../../util';
+import './analyse.css'
 
 
 function Testmainanlyse() {
@@ -180,11 +181,13 @@ function Testmainanlyse() {
     }
 
     return (
-        <div className="container-fluid flex mt-2 gap-3 flex-col  h-[100vh] ">
+        <div className="container-fluid w-[100%] overflow-x-hidden flex mt-2 gap-3 flex-col    analyseresponsive  ">
+            {/* <button className=' text-white ' >AI Inspaction</button> */}
             <div className='shadow-2xl shadow-blue-500/20 max-h-[100%] rounded '>
-                <div className="container-fluid p-0 flex flex-grow  mb-4 w-[100%] gap-3 rounded ">
+                <div className="container-fluid p-0 flex box-border  mb-4 w-[100%] gap-3 rounded  ">
                     {selectedImage && (
                         <MainAnalyseShape
+                          
                             selectedImage={selectedImage}
                             imageUrl={imageUrl}
                             handleImageClosing={handleImageClosing}
@@ -233,7 +236,7 @@ function Testmainanlyse() {
                 </div>
             </div>
 
-            <div className='flex justify-center'>
+            <div className='flex justify-center maincloud'>
                 {data ? (
                     <Cloudimage_footer data={data} onImageClick={handleImageClick} cloudimage={cloudimage} updatefooter={updatefooterimageforshape} />
                 ) : (
