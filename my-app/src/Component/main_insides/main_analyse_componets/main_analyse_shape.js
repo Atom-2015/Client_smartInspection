@@ -431,7 +431,6 @@ function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfals
             setFastInspectionShapes(fastInspactionfromchild);
         }
 
-
         if (shapeDataFromChild) {
             const loadedShapes = [];
 
@@ -484,10 +483,10 @@ function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfals
 
     const handleModeChange = (newMode) => {
         // Check if a shape already exists; show a message if trying to create another shape type
-        if (shapes.length > 0 && (newMode === 'rectangle' || newMode === 'polygon')) {
-            showMessage("Only one shape is allowed at a time. Reset to create a new shape.");
-            return;
-        }
+        // if (shapes.length > 0 && (newMode === 'rectangle' || newMode === 'polygon')) {
+        //     showMessage("Only one shape is allowed at a time. Reset to create a new shape.");
+        //     return;
+        // }
 
         if (newMode === 'fast-inspection') {
             if (mode !== 'fast-inspection') {
@@ -708,7 +707,7 @@ function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfals
                                         height={shape.height}
                                         stroke="white"
                                         fill="rgba(255,255,255,0.3)"
-                                        strokeWidth={1 / scale}  
+                                        strokeWidth={1 / scale}
                                     />
                                 ) : (
                                     <React.Fragment key={index}>
