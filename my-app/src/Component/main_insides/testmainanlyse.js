@@ -182,6 +182,7 @@ function Testmainanlyse() {
 
     return (
         <div className="container-fluid w-[100%] overflow-x-hidden flex mt-2 gap-3 flex-col    analyseresponsive  ">
+            {/* <button className=' text-white ' >AI Inspaction</button> */}
             <div className='shadow-2xl shadow-blue-500/20 max-h-[100%] rounded '>
                 <div className="container-fluid p-0 flex box-border  mb-4 w-[100%] gap-3 rounded  ">
                     {selectedImage && (
