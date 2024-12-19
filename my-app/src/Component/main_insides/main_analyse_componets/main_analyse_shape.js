@@ -518,7 +518,7 @@ function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfals
         } else if (mode === 'fast-inspection') {
             setFastInspectionShapes((prevShapes) => [
                 ...prevShapes,
-                { x: adjustedPos.x, y: adjustedPos.y, width: 50, height: 50 },
+                { x: adjustedPos.x, y: adjustedPos.y, width: 12, height:12 },
             ]);
         }
     };

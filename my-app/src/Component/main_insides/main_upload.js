@@ -1230,12 +1230,12 @@ function Main_upload() {
         </div>
 
         {files.length > 0 && (
-          <div className="fixed bottom-0 right-0 w-72 bg-gray-900 text-white p-4 shadow-lg rounded-t-lg">
-            <div className="flex justify-between items-center mb-2">
+          <div className={`fixed bottom-0 right-0 w-[500px] overflow-y-scroll  ${!tabMinimized ?  'h-[500px]' : 'h-[70px]'} bg-gray-900 text-white p-4 shadow-xxl rounded-t-lg shadow-[0px_0px_10px_white]  `}>
+            <div className="flex justify-between items-center mb-2" onClick={() => setTabMinimized(item => !item)}>
               <h4>Uploading Files</h4>
-              <button onClick={() => setTabMinimized(true)} className="text-white">
+              {/* <button onClick={() => setTabMinimized(item => !item)} className="text-white">
                 <FontAwesomeIcon icon={faChevronDown} />
-              </button>
+              </button> */}
             </div>
             {files.map((file, index) => (
               <div key={index} className="mb-2">
@@ -1246,7 +1246,11 @@ function Main_upload() {
                   <div
                     className="bg-green-500 h-2 rounded"
                     style={{ width: `${uploadProgress[file.name] || 0}%` }}
-                  ></div>
+                    
+                  >
+                    {/* {uploadProgress[file.name]=== 100 ? 'yes' : 'Pending'} */}
+                  
+                  </div>
                 </div>
               </div>
             ))}

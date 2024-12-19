@@ -94,7 +94,7 @@ function Maindetailpage() {
 
           {/* Navigation Section */}
           <div className="col-md-6">
-            <ul className="nav justify-content-end gap-2" style={{ position: 'relative' }} ref={navRef}>
+            <ul className="nav justify-content-end align-middle items-center gap-2" style={{ position: 'relative' }} ref={navRef}>
               {['/detail/details', '/detail/upload', '/detail/analyse', '/detail/tagimage', `/detail/generateReport/${reportId}`].map(
                 (path, index) => (
                   <li className="nav-item" key={index}>
@@ -128,12 +128,15 @@ function Maindetailpage() {
                 }}
 
                 
-              ></div>
-              {location.pathname === '/detail/analyse' && (
-        <div className="text-center my-2 text-white "  >
-          <ButtonAI />
-        </div>
-      )}
+                >
+                  
+                </div>
+                
+                {location.pathname === '/detail/analyse' && (
+          <div className="text-center my-2 text-white font-bold text-[16px] "  >
+            <ButtonAI />
+          </div>
+        )}
 
             </ul>
           </div>
