@@ -403,7 +403,7 @@ import { faSquare, faDrawPolygon, faUndo, faSquareXmark, faBolt } from '@fortawe
 
 import './inneranalyse.css'
 
-function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfalseclicked, onShapeDataChange, shapeDataFromChild, fastInspactionfromchild, sendfastmodal, sendFastInspactionDataToParent }) {
+function MainAnalyseShape({ selectedImage,openrectanglesetfalse, imageUrl, handleImageClosing,openRectangleModal ,setfalseclicked, onShapeDataChange, shapeDataFromChild, fastInspactionfromchild, sendfastmodal, sendFastInspactionDataToParent }) {
     const stageRef = useRef(null);
     const [mode, setMode] = useState(null);
     const [shapes, setShapes] = useState([]);
@@ -492,8 +492,11 @@ function MainAnalyseShape({ selectedImage, imageUrl, handleImageClosing, setfals
             if (mode !== 'fast-inspection') {
                 // Reset fast inspection shapes when starting a new fast inspection session
                 setFastInspectionShapes([]);
+                openrectanglesetfalse(false);
             }
             sendfastmodal(true); // Trigger the modal or necessary action
+        } else if(newMode!= 'fast-inspection'){
+            openRectangleModal(false);
         }
 
         setMode(newMode);

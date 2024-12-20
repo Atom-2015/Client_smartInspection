@@ -11,7 +11,8 @@ function Formreportdata({
     tostermessage,
     fastInspactionclicked2,
     sendfalse,
-    fastInspactionDatatoSiblingchild
+    fastInspactionDatatoSiblingchild,
+    openNormalModals
 
 }) {
     const [componentOptions, setComponentOptions] = useState([]);
@@ -19,13 +20,7 @@ function Formreportdata({
     const [inspactiontype, setInspactiontype] = useState();
     const [openfastInspactionmodal , setOpenfastInspactionmodal] = useState(false);
 
-    useEffect(() => {
-        if (tostermessage === 'Data Stored') {
-            handleSuccess(tostermessage);
-            return;
-        }
-        handleError(tostermessage);
-    }, [tostermessage]);
+    
 
     useEffect(()=>{
         fastInspactionclicked2&& setOpenfastInspactionmodal(true);
@@ -59,6 +54,22 @@ function Formreportdata({
         setOpenfastInspactionmodal(false);
         sendfalse(false)
     }
+
+    useEffect(()=>{
+        console.log("Ye hai open modal form ke aandar",openNormalModals)
+        if(openNormalModals === true){
+            crossClicked();
+        } 
+    },[openNormalModals])
+
+    useEffect(() => {
+        
+        if (tostermessage === 'Data Stored') {
+            handleSuccess(tostermessage);
+            return;
+        }
+        handleError(tostermessage);
+    }, [tostermessage]);
     return (
         <div className="p-4 bg-gray-900 rounded-lg shadow-lg w-[300px] h-[600px] mx-auto flex flex-col justify-between">
              

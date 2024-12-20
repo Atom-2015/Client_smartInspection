@@ -12,13 +12,13 @@
 //     const [editIndex, setEditIndex] = useState(null);
 //     const [editedIssue, setEditedIssue] = useState({});
 //     const [shapeDataGet, setShapeDataGet] = useState(null);
-    
+
 //     // Ref to track if the API call has been made
 //     const apiCalledRef = useRef(false);
 
 //     useEffect(() => {
 //         // Only make the API call if it hasn't been made yet and `clicked` is true
-     
+
 //             (async () => {
 //                 try {
 //                     const response = await axios.get('/api/main/reportdetail', {
@@ -45,7 +45,7 @@
 //                     handleError(`Error: ${error.message}`);
 //                 }
 //             })();
-        
+
 //     }, [clicked]); // Only depend on `clicked`
 
 //     const toggleAccordion = (index) => {
@@ -88,7 +88,7 @@
 //         <FontAwesomeIcon icon={faKeyboard} />
 //       </div>
 
-     
+
 
 //       {/* Updated Tooltip component */}
 //       <Tooltip id="tooltip" place="top" effect="solid" />
@@ -194,7 +194,7 @@
 //                                         </table>
 //                                     )}
 //                                     {/* <p>{item._id}</p> */}
-                                     
+
 //                                     <Edit_delete
 //                                         indexx={index}
 //                                         itemid={item._id}
@@ -246,14 +246,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKeyboard, faArrowDown, faArrowUp, faArrowLeft, faArrowRight, faSave, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from 'react-tooltip';
 
-function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updateissuestate  , updateissuestatebyfalse}) {
+function Existingissue({ clicked, sendShapeDataGet, sendfastinspaction, updateissuestate, updateissuestatebyfalse }) {
     const [data, setData] = useState([]);
     const [openIndex, setOpenIndex] = useState(null);
     const [editIndex, setEditIndex] = useState(null);
     const [editedIssue, setEditedIssue] = useState({});
     const [shapeDataGet, setShapeDataGet] = useState(null);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const [fastinspaction , setFastinspaction] = useState(null);
+    const [fastinspaction, setFastinspaction] = useState(null);
     const [updatePrvissue, setUpdatePrvissue] = useState(false);
 
     const dropdownRef = useRef(null);
@@ -312,7 +312,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
         };
     }, []);
 
-   
+
 
 
     useEffect(() => {
@@ -326,14 +326,14 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                         'image-id': localStorage.getItem('image-id'),
                     },
                 });
-    
+
                 if (response.data) {
                     // // handleSuccess('Report Fetched');
                     // setData(response.data.reportData.reportdetail || []); 
                     // sendShapeDataGet(response.data.shapeData); 
                     // setShapeDataGet(response.data.shapeData);
                     // const fastInspactionData = response.data.fastInspaction;
-                     // setFastinspaction(fastInspactionData);
+                    // setFastinspaction(fastInspactionData);
                     // sendfastinspaction(fastInspactionData?.shape || []);
 
 
@@ -346,7 +346,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                     sendShapeDataGet(response.data.shapeData);
                     apiCalledRef.current = true;
                     setUpdatePrvissue(false);
-                     
+
                 } else {
                     // handleError('No response from the API');
                 }
@@ -355,9 +355,9 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                 // handleError(`Error: ${error.message}`);
             }
         };
-    
+
         fetchData();
-    }, [clicked , updateissuestate ,updatePrvissue]);  
+    }, [clicked, updateissuestate, updatePrvissue]);
 
     const toggleAccordion = (index) => {
         setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -386,8 +386,8 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
         }
     };
 
-    
-    const functionsetUpdatePrvissue = ()=>{
+
+    const functionsetUpdatePrvissue = () => {
         setUpdatePrvissue(true);
     }
 
@@ -405,17 +405,19 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                 <Tooltip id="tooltip" place="top" effect="solid" />
 
                 {isDropdownOpen && (
-                    <div ref={dropdownRef} className="absolute top-12 left-[-20px] bg-white shadow-lg rounded-lg p-4 w-[450px] z-10  animate-slide-down">
+                    <div ref={dropdownRef} className="absolute top-12 left-[-20px] bg-white shadow-lg rounded-lg p-4 w-[350px] z-10  animate-slide-down">
                         <h3 className="text-md font-semibold mb-3 flex items-center justify-evenly">
                             <FontAwesomeIcon icon={faKeyboard} className="mr-2 " />
                             <div className="shadow-[0px_0px_5px_1px_teal] rounded p-2 text-[20px]">Keyboard Shortcuts</div>
                         </h3>
                         <ul className="space-y-2 p-0">
                             {keyboardShortcuts.map((shortcut, index) => (
-                                <li key={index} className="flex justify-between text-sm items-center ">
-                                    <FontAwesomeIcon icon={shortcut.icon} className="mr-2 text-gray-600" />
-                                    <span className="font-bold">{shortcut.key}</span>
-                                    <span>{shortcut.action}</span>
+                                <li key={index} className="flex justify-between text-center text-sm">
+                                    <div className="flex text-center">
+                                        <FontAwesomeIcon icon={shortcut.icon} className="mr-2 text-gray-600" />
+                                        <span className="font-bold text-center">{shortcut.key}</span>
+                                    </div>
+                                    <span className="  " >{shortcut.action}</span>
                                 </li>
                             ))}
                         </ul>
@@ -430,9 +432,8 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                         {data.map((item, index) => (
                             <div
                                 key={item._id}
-                                className={`bg-white p-2 rounded-lg shadow hover:shadow-lg transition-all duration-200 ${
-                                    openIndex === index ? 'border border-blue-800 z-30' : ''
-                                }`}
+                                className={`bg-white p-2 rounded-lg shadow hover:shadow-lg transition-all duration-200 ${openIndex === index ? 'border border-blue-800 z-30' : ''
+                                    }`}
                             >
                                 <div
                                     className="flex justify-between items-center align-middle cursor-pointer text-lg font-bold text-blue-400"
@@ -522,7 +523,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                                             </table>
                                         )}
                                         <Edit_delete
-                                        setUpdatePrvissue={functionsetUpdatePrvissue}
+                                            setUpdatePrvissue={functionsetUpdatePrvissue}
                                             indexx={index}
                                             itemid={item._id}
                                             shapeData={shapeDataGet}
@@ -537,7 +538,7 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                                                         poly._id === updatedShape._id ? updatedShape : poly
                                                     );
                                                 }
-                                                setShapeDataGet(newShapeData);  
+                                                setShapeDataGet(newShapeData);
                                             }}
                                         />
                                     </div>
