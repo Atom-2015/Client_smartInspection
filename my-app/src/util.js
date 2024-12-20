@@ -11,6 +11,7 @@ export const handleSuccess = (msg) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+      
     });
 }
 

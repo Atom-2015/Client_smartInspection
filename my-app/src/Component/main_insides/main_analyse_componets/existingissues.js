@@ -405,14 +405,14 @@ function Existingissue({ clicked, sendShapeDataGet , sendfastinspaction ,updatei
                 <Tooltip id="tooltip" place="top" effect="solid" />
 
                 {isDropdownOpen && (
-                    <div ref={dropdownRef} className="absolute top-12 left-0 bg-white shadow-lg rounded-lg p-4 w-[350px] z-10 animate-slide-down">
+                    <div ref={dropdownRef} className="absolute top-12 left-[-20px] bg-white shadow-lg rounded-lg p-4 w-[450px] z-10  animate-slide-down">
                         <h3 className="text-md font-semibold mb-3 flex items-center justify-evenly">
                             <FontAwesomeIcon icon={faKeyboard} className="mr-2 " />
                             <div className="shadow-[0px_0px_5px_1px_teal] rounded p-2 text-[20px]">Keyboard Shortcuts</div>
                         </h3>
                         <ul className="space-y-2 p-0">
                             {keyboardShortcuts.map((shortcut, index) => (
-                                <li key={index} className="flex justify-between text-sm items-center">
+                                <li key={index} className="flex justify-between text-sm items-center ">
                                     <FontAwesomeIcon icon={shortcut.icon} className="mr-2 text-gray-600" />
                                     <span className="font-bold">{shortcut.key}</span>
                                     <span>{shortcut.action}</span>

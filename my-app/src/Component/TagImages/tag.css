@@ -4,7 +4,17 @@
 
 
 .tagimagesrespo{
-    zoom: 0.8;
+    zoom: 0.85;
 
 }
+}
+
+@media(max-width:1920px) and (max-height:1050px){
+
+    .tagimagesrespo{
+        zoom: 1 !important;
+    
+    }
+
+
 }

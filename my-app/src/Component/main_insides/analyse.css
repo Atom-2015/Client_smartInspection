@@ -1,5 +1,5 @@
 @media(max-width:1920px){
-    #analyseresponsive{
+    .analyseresponsive{
   overflow-y: hidden;
   zoom: 0.9;
     }
@@ -25,3 +25,23 @@
        zoom: 0.9;
     }
 }
+
+@media(max-width:1920px) and (max-height:1050px){
+    .detailresponsive{
+        zoom: 1 !important;
+     }
+
+     .analyseresponsive{
+        overflow-y: hidden !important;
+        zoom: 1 !important;
+          }
+
+          .cloudimgresponsive{
+            zoom: 1 !important;
+        }
+
+        #mapinsiderespon{
+            height: 550px !important;
+            
+        }
+  }

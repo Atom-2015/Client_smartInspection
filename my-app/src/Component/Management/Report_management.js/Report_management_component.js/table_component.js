@@ -534,9 +534,22 @@ function TableComponent() {
 
   return (
     <div className="p-2 rounded mt-2 tableres">
-      <h2 className="text-3xl font-semibold mb-6 text-center text-white">
+      {/* <h2 className="text-3xl font-semibold mb-6 text-center  text-white">
         Inspections, Components, and Issue Types
-      </h2>
+      </h2> */}
+
+<h2
+  className="text-3xl font-semibold mb-6 text-center text-white animate-typing"
+  style={{
+    display: 'inline-block',
+    overflow: 'hidden', 
+    whiteSpace: 'nowrap',
+    // borderRight: '2px solid #ffffff', // Cursor effect
+  }}
+>
+  Inspections, Components, and Issue Types
+</h2>
+
       {isOpen && <Edit_modal_table compid={componentid} closeModal={closeModal} />}
       {data && data.length > 0 ? (
         <table className="w-full bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
