@@ -77,7 +77,7 @@ function Formreportdata({
             {openfastInspactionmodal?(
                 <div>
                  <FastInspactionform componentOptions={componentOptions} issueTypeOptions={issueTypeOptions} fastInspactionDatatoSiblingchild={fastInspactionDatatoSiblingchild}/>
-                  <button className=' text-white "w-full mt-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600  font-semibold rounded-md hover:from-purple-600 hover:to-blue-500 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-700 w-[100%] '  onClick={(e)=> crossClicked(e) } > Cancel </button>
+                  <button className=' text-white "w-full mt-4 py-2 bg-red-400 focus:outline-none focus:ring-2   w-[100%] rounded '  onClick={(e)=> crossClicked(e) } > Cancel </button>
                   </div>
                 )                 
                  : <form onSubmit={handleimageupdate} className="space-y-1 flex-1 overflow-hidden"> 
