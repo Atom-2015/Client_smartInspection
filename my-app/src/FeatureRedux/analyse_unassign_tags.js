@@ -7,7 +7,7 @@ export const DeleteUser = createAsyncThunk(
     "unassigntags" , 
     async (removetags , {rejectWithValue})=>{
         try {
-            const response = await axios.post('/api/tagimage/unassign', {imageid : removetags.images , tags:removetags.tags} , {
+            const response = await axios.post('http://13.201.248.202:3001/api/tagimage/unassign', {imageid : removetags.images , tags:removetags.tags} , {
                 headers:{
                     'Content-Type': 'application/json',
                     'x-auth-token': localStorage.getItem("token"),
