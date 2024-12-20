@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import  './billing.css'
 
 function Billing() {
   const [isFeaturesModalOpen, setIsFeaturesModalOpen] = useState(false);
@@ -8,12 +9,12 @@ function Billing() {
   const closeFeaturesModal = () => setIsFeaturesModalOpen(false);
 
   return (
-    <div className="container my-4">
+    <div className="container my-4" id='ankittt'>
       {/* Subscription Status Section */}
       <div className="row mb-4">
         <div className="col-md-4">
           <div className="card border-light shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e]" id='firstbill'>
               <h5 className="card-title text-white">Current Status</h5>
               <p className="card-text text-white">View your current billing details here</p>
               <hr />
@@ -37,7 +38,7 @@ function Billing() {
         {/* Trial Card */}
         <div className="col-md-4">
           <div className="card shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e] box-billing h-[283px]">
               <h6 className="font-bold text-white">Trial</h6>
               <p className="text-white">FREE product trial period.</p>
               <hr />
@@ -52,7 +53,7 @@ function Billing() {
         {/* On-Demand Pricing Card */}
         <div className="col-md-4">
           <div className="card shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e] h-[283px]">
               <h6 className="font-bold text-white">On-Demand Pricing</h6>
               <p className="text-white">It’s straightforward: you pay a fixed rate per asset or image.</p>
               <hr />
@@ -66,7 +67,7 @@ function Billing() {
         {/* Yearly Enterprise Subscription Card */}
         <div className="col-md-4">
           <div className="card shadow-sm">
-            <div className="card-body bg-[#1e1e1e]">
+            <div className="card-body bg-[#1e1e1e] h-[283px]">
               <h6 className="font-bold text-white">Yearly Enterprise Subscription</h6>
               <p className="text-white">For large amounts of data. You pay a tailor-made pricing plan.</p>
               <hr />

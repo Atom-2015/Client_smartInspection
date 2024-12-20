@@ -422,6 +422,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { handleError, handleSuccess } from '../../../../util';
 import Edit_modal_table from './edit_modal_table';
+import './report.css'
 
 function TableComponent() {
   const [data, setData] = useState([]);
@@ -532,7 +533,7 @@ function TableComponent() {
   };
 
   return (
-    <div className="p-2">
+    <div className="p-2 rounded mt-2 tableres">
       <h2 className="text-3xl font-semibold mb-6 text-center text-white">
         Inspections, Components, and Issue Types
       </h2>
@@ -549,7 +550,7 @@ function TableComponent() {
           </thead>
           <tbody>
             {data.map((item, index) => (
-              <tr key={index} className="even:bg-gray-100 hover:bg-blue-50">
+              <tr key={index} className="even:bg-gray-100 hover:bg-blue-50 border-b">
                 <td className="py-2 px-2 border-b font-bold bg-[#1e1e1e] text-white text-left ">{item.inspectionName}</td>
                 <td className="py-2 px-2 border-b bg-[#1e1e1e] text-white text-left">
                   {renderContentWithToggle(

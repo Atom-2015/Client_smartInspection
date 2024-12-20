@@ -6,6 +6,7 @@ import External from './main_detail_inside/external';
 import Inspaction_type_group from './main_detail_inside/inspaction_type_group';
 import Inspaction_data from './main_detail_inside/inspaction_data';
 import { ToastContainer } from 'react-toastify';
+import './analyse.css'
 
 function Main_details() {
     
@@ -16,7 +17,7 @@ function Main_details() {
    
 
     return (
-        <div className="container-fluid mx-auto p-4 flex">
+        <div className="container-fluid mx-auto p-4 flex detailresponsive">
             {/* Left Side */}
             <div className="w-[40%] ">
                 <Inspaction_data  reportId={reportId} />

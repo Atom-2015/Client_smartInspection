@@ -1,0 +1,11 @@
+@media(max-width:768px){
+#firstbill{
+    padding: 10px !important;
+    margin-bottom: 5px;
+}
+#firstbill p{
+    margin-bottom: 7px !important;
+}
+
+
+}

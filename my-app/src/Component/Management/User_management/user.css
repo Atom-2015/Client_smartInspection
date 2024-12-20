@@ -1,0 +1,10 @@
+@media(max-width:1920px){
+   #userresponsive{
+    zoom: 0.8 !important;
+
+   }
+
+   #tableres{
+  zoom: 0.9 !important;
+   }
+}

@@ -51,6 +51,8 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBook , faBuilding ,faUser} from '@fortawesome/free-solid-svg-icons';
 
 function ManagementSide() {
     return (
@@ -67,11 +69,17 @@ function ManagementSide() {
                         }`
                     }
                 >
-                    <h6 className="font-semibold text-[16px] text-center ">User</h6>
+
+
+<div className='flex align-middle justify-center  gap-2 items-center '>
+<h6 className="font-semibold text-[16px] text-center m-0 ">User</h6>
+<FontAwesomeIcon icon={faUser} />
+                    </div>
+
+
+                  
                 </NavLink>
-                <span className="tooltip-text absolute left-full top-1/2 transform -translate-y-1/2 bg-[#203354] text-white p-2 rounded-md opacity-0 transition-opacity duration-200 ml-2 z-10 text-sm">
-                    User Management
-                </span>
+               
             </div>
 
             {/* Company Management */}
@@ -86,11 +94,14 @@ function ManagementSide() {
                         }`
                     }
                 >
-                    <h6 className="font-semibold text-[16px] text-center">Company</h6>
+
+<div className='flex align-middle justify-center  gap-2 items-center '>
+<h6 className="font-semibold text-[16px] text-center m-0">Company</h6>
+<FontAwesomeIcon icon={faBuilding} />
+                    </div>
+                    
                 </NavLink>
-                <span className="tooltip-text absolute left-full top-1/2 transform -translate-y-1/2 bg-[#203354] text-white p-2 rounded-md opacity-0 transition-opacity duration-200 ml-2 z-10 text-sm">
-                    Company Management
-                </span>
+               
             </div>
 
             {/* Report Management */}
@@ -105,11 +116,15 @@ function ManagementSide() {
                         }`
                     }
                 >
-                    <h6 className="font-semibold text-[16px] text-center">Report</h6>
+
+                    <div className='flex align-middle justify-center gap-2 items-center '>
+                    <h6 className="font-semibold text-[16px] text-center m-0">Report</h6>
+                    <FontAwesomeIcon icon={faBook} />
+                    </div>
+                   
+                  
                 </NavLink>
-                <span className="tooltip-text absolute left-full top-1/2 transform -translate-y-1/2 bg-[#203354] text-white p-2 rounded-md opacity-0 transition-opacity duration-200 ml-2 z-10 text-sm">
-                    Report Management
-                </span>
+              
             </div>
         </div>
     );

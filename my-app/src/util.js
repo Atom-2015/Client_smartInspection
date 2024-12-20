@@ -10,6 +10,10 @@ export const handleSuccess = (msg) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        style: {
+            top: '80px', // Add margin to the top to adjust the position
+            height: '30px !important',
+        },
     });
 }
 
@@ -23,5 +27,8 @@ export const handleError = (msg) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        style: {
+            top: '80px', // Add margin to the top to adjust the position
+        },
     });
 }

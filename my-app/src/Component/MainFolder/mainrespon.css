@@ -1,0 +1,28 @@
+@media(max-width:1920px){
+    .maintorespo{
+
+
+
+    }
+    #mapresponsive{
+   
+      height: 400px !important;
+      min-height: 400px !important;
+      
+    }
+
+
+    #maprespo{
+       
+     height: 400px !important;
+    }
+
+    .tableresponsive{
+     zoom: 0.87;
+    }
+}
+
+
+
+ /* width: calc(100% ) !important;
+        width: 100vw !important;  */
