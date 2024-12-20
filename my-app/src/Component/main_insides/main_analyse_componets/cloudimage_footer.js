@@ -512,8 +512,31 @@ function Cloudimage_footer({ data, onImageClick , updatefooter }) {
                                 </div>
                             );
                         })}
+                    
                     </div>
-                    <div className="flex justify-end items-center space-x-1 mt-1 gap-1">
+        
+
+
+
+                 
+
+
+
+                    <div className="flex justify-end items-center space-x-1 mt-1 gap-2">
+
+        
+                    <div className='text-white mr-0   w-[20px] h-[20px]  border-3 border-green-500 '>
+   
+                  </div>
+
+                  <div className='text-white '>: Inspection Created /</div>
+
+                  <div className='text-white mr-0   w-[20px] h-[20px]  border-3 border-blue-500 '>
+   
+   </div>
+   <div className='text-white '>: Selected Image </div>
+                     
+          
                         <button
                             className={`px-2 py-1 border rounded-md bg-gray-100 hover:bg-gray-200 transition ${
                                 currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''

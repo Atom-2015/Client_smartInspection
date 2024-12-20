@@ -374,6 +374,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import Usertable from './usertable';
 import './user.css';
+import { handleSuccess } from '../../../util';
 
 
 function UserManagement() {
@@ -402,6 +403,8 @@ function UserManagement() {
     setUserExpiryDate("");
   };
 
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -419,9 +422,9 @@ function UserManagement() {
       if (createuser.fulfilled.match(resultAction)) {
         toast.success("User created successfully!");
         handleReset();
-      } else {
-        toast.error("Failed to create user: " + resultAction.payload);
-      }
+      } 
+      handleSuccess('User Created Successfully')
+      
     } catch (error) {
       toast.error("An unexpected error occurred: " + error.message);
     }
@@ -566,7 +569,7 @@ function UserManagement() {
       
     {/* User Table */}
       <div>
-        <Usertable/>
+        <Usertable />
       </div>
 
       <ToastContainer />
