@@ -10,7 +10,7 @@
     }
 
     .cloudimgresponsive{
-        zoom: 0.9 !important;
+        zoom: 0.87 !important;
     }
 
     /* inner shape of images */
@@ -36,9 +36,7 @@
         zoom: 1 !important;
           }
 
-          .cloudimgresponsive{
-            zoom: 1 !important;
-        }
+         
 
         #mapinsiderespon{
             height: 550px !important;
