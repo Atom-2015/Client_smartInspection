@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://13.201.248.202:3001/",
+  
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.16.0",
     "@flaticon/flaticon-uicons": "^3.3.1",
