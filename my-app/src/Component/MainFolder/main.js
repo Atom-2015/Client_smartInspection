@@ -220,7 +220,8 @@ function Main() {
 
   const [inspaction, setInsapaction] = useState(null);
 
-  async function searchInspactionData() {
+  async function searchInspactionData(value) {
+    setInsapaction(value)
     try {
       const response = await axios.get('http://13.201.248.202:3001/api/main/searchinspaction', {
         params: {
@@ -282,12 +283,15 @@ function Main() {
               type="text"
               placeholder="Search by Inspection or Company "
               value={inspaction}
-              onChange={(e) => setInsapaction(e.target.value)}
+              // onChange={(e) => setInsapaction(e.target.value)}
+              onChange={(e) => searchInspactionData(e.target.value)}
+            
               className="p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-[18%]"
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
                   searchInspactionData(); // Call your function here
                 }
+             
               }}
             />
 

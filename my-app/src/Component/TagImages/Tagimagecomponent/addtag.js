@@ -278,7 +278,7 @@ function Addtag({ imageid }) {
                 )}
             </div>
 
-            <div className="flex justify-between pl-1">
+            <div className="flex justify-between gap-2 pl-1">
                 <button className="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 transition">
                     More
                 </button>

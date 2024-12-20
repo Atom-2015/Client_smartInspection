@@ -39,7 +39,7 @@ function FastInspactionform({ issueTypeOptions, componentOptions, fastInspaction
     <div>
       <form className="space-y-1 flex-1 overflow-hidden">
         <div className="flex flex-col">
-          <div className='text-white text-[20px] text-center border-b-2 mb-1 p-1'>Fast Inspection Form</div>
+          <div className='text-white text-[20px] text-center border-b-2 mb-1 p-1'>Smart Inspection</div>
 
 
           <label htmlFor="component" className="mb-1 font-semibold text-gray-100">

@@ -339,7 +339,7 @@ function CompanyList({ updatelist }) {
 
   return (
     <div className="mt-4">
-      <h2 className="text-center mb-4 text-[40px] font-semibold text-white">Company List</h2>
+      <h2 className="text-center mb-4 text-[30px] font-semibold text-white">Company List</h2>
 
       {currentCompanies.length > 0 ? (
         <div className="overflow-x-auto">

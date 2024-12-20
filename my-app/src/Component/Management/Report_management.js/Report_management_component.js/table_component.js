@@ -534,9 +534,22 @@ function TableComponent() {
 
   return (
     <div className="p-2 rounded mt-2 tableres">
-      <h2 className="text-3xl font-semibold mb-6 text-center text-white">
+      {/* <h2 className="text-3xl font-semibold mb-6 text-center  text-white">
         Inspections, Components, and Issue Types
-      </h2>
+      </h2> */}
+
+<h2
+  className="text-3xl font-semibold mb-6 text-center text-white animate-typing"
+  style={{
+    display: 'inline-block',
+    overflow: 'hidden', 
+    whiteSpace: 'nowrap',
+    // borderRight: '2px solid #ffffff', // Cursor effect
+  }}
+>
+  Inspections, Components, and Issue Types
+</h2>
+
       {isOpen && <Edit_modal_table compid={componentid} closeModal={closeModal} />}
       {data && data.length > 0 ? (
         <table className="w-full bg-white border border-gray-300 rounded-lg shadow-lg overflow-hidden">
@@ -615,13 +628,13 @@ function TableComponent() {
             <h3 className="text-lg font-semibold mb-4">Are you sure you want to delete?</h3>
             <div className="flex justify-end gap-4">
               <button
-                onClick={closeDeleteModal}
+                onClick={closeDeleteModal()}
                 className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-1 px-4 rounded"
               >
                 Cancel
               </button>
               <button
-                onClick={handleDelete}
+                onClick={handleDelete()}
                 className="bg-red-500 hover:bg-red-700 text-white font-semibold py-1 px-4 rounded"
               >
                 Yes, Delete
@@ -629,7 +642,10 @@ function TableComponent() {
             </div>
           </div>
         </div>
+        
       )}
+
+ 
     </div>
   );
 }
