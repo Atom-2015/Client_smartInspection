@@ -403,7 +403,7 @@ import { faSquare, faDrawPolygon, faUndo, faSquareXmark, faBolt } from '@fortawe
 
 import './inneranalyse.css'
 
-function MainAnalyseShape({ selectedImage,openrectanglesetfalse, imageUrl, handleImageClosing,openRectangleModal ,setfalseclicked, onShapeDataChange, shapeDataFromChild, fastInspactionfromchild, sendfastmodal, sendFastInspactionDataToParent }) {
+function MainAnalyseShape({ selectedImage, openrectanglesetfalse, imageUrl, handleImageClosing, openRectangleModal, setfalseclicked, onShapeDataChange, shapeDataFromChild, fastInspactionfromchild, sendfastmodal, sendFastInspactionDataToParent }) {
     const stageRef = useRef(null);
     const [mode, setMode] = useState(null);
     const [shapes, setShapes] = useState([]);
@@ -495,7 +495,7 @@ function MainAnalyseShape({ selectedImage,openrectanglesetfalse, imageUrl, handl
                 openrectanglesetfalse(false);
             }
             sendfastmodal(true); // Trigger the modal or necessary action
-        } else if(newMode!= 'fast-inspection'){
+        } else if (newMode != 'fast-inspection') {
             openRectangleModal(false);
         }
 
@@ -521,7 +521,7 @@ function MainAnalyseShape({ selectedImage,openrectanglesetfalse, imageUrl, handl
         } else if (mode === 'fast-inspection') {
             setFastInspectionShapes((prevShapes) => [
                 ...prevShapes,
-                { x: adjustedPos.x, y: adjustedPos.y, width: 12, height:12 },
+                { x: adjustedPos.x, y: adjustedPos.y, width: 6, height: 6 },
             ]);
         }
     };
@@ -749,7 +749,7 @@ function MainAnalyseShape({ selectedImage,openrectanglesetfalse, imageUrl, handl
                                     height={shape.height}
                                     stroke="yellow"
                                     fill="rgba(255, 255, 0, 0.3)"
-                                    strokeWidth={1.3}
+                                    strokeWidth={0.5}
                                 />
                             ))}
                             {isDrawing && rectProps && (
