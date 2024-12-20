@@ -12,6 +12,7 @@ import Cookies from 'js-cookie';
 import MainAnalyseShape from './main_analyse_componets/main_analyse_shape';
 import { handleError } from '../../util';
 import './analyse.css'
+// import { useLocation } from 'react-router-dom';
 
 
 function Testmainanlyse() {
@@ -48,7 +49,9 @@ function Testmainanlyse() {
 
     const [fastInspactionfromchild, setFastInspactionfromchild] = useState(null);
 
-
+    
+   
+     
 
 
     const handlefastInspactionfromchild = (data) => {
@@ -62,24 +65,28 @@ function Testmainanlyse() {
     }
 
     useEffect(() => {
+        // Cookies.set('altreportid' , aditya , { expires: 7 })
         (async () => {
             try {
                 const response = await axios.get('http://13.201.248.202:3001/api/main/cloudimage', {
                     headers: {
                         'Content-Type': 'application/json',
                         'x-auth-token': localStorage.getItem('token'),
-                        'x-report-id': Cookies.get('reportId'),
+                        'x-report-id':    Cookies.get('reportId'),
                     },
                 });
                 setData(response.data.data[0]);
                 setCloudimage(response.data.data)
                 setInspections(response.data.data);
+                Cookies.remove('altreportid');
                 // console.log("Hooda",cloudimage);
+                // setCallapi(false)
+
             } catch (error) {
                 console.log("Error in axios:", error);
             }
         })();
-    }, [updateissuestate , updateshape]);
+    }, [updateissuestate , updateshape ]);
 
 
     const getInspectionCoordinates = () => {

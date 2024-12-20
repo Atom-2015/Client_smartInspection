@@ -537,9 +537,11 @@
 
 
 
+
+
 import React, { useState, useRef } from 'react';
 import exifParser from 'exif-parser';
-import { Navigate, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { handleError, handleSuccess } from '../../util';
 import { ToastContainer } from 'react-toastify';
@@ -549,6 +551,8 @@ import { faChevronDown, faChevronRight, faTimes } from '@fortawesome/free-solid-
 import './analyse.css';
 import Detailuploadleft from './mainuploadComponent/detailuploadleft';
 import Showuploadeddata from './mainuploadComponent/showuploadeddata';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie'
 
 function Main_upload() {
   const [files, setFiles] = useState([]); // Holds the selected files
@@ -580,6 +584,8 @@ function Main_upload() {
     };
     reader.readAsArrayBuffer(file);
   };
+
+  const navigate = useNavigate();
 
   // Handle file selection
   const handleFileChange = (event) => {
@@ -629,7 +635,7 @@ function Main_upload() {
       return null;
     }
   };
-
+   
   // Handle file upload process
   const handleUploadClick = async () => {
     setIsLoading(true);
@@ -665,7 +671,7 @@ function Main_upload() {
           },
         });
         handleSuccess('Images uploaded successfully');
-        Navigate('/detail/analyse');
+         
       } catch (error) {
         console.error('Error sending data to API:', error);
         handleError('Error while uploading the files.');
@@ -759,12 +765,12 @@ function Main_upload() {
         )}
 
         {files.length > 0 && (
-          <div className={`fixed bottom-0 right-0 w-[500px] overflow-y-scroll  ${!tabMinimized ?  'h-[500px]' : 'h-[70px]'} bg-gray-900 text-white p-4 shadow-xxl rounded-t-lg shadow-[0px_0px_10px_white]  `}>
-            <div className="flex justify-between items-center mb-2" onClick={() => setTabMinimized(item => !item)}>
+          <div className="fixed bottom-0 right-0 w-72 bg-gray-900 text-white p-4 shadow-lg rounded-t-lg">
+            <div className="flex justify-between items-center mb-2">
               <h4>Uploading Files</h4>
-              {/* <button onClick={() => setTabMinimized(item => !item)} className="text-white">
+              <button onClick={() => setTabMinimized(true)} className="text-white">
                 <FontAwesomeIcon icon={faChevronDown} />
-              </button> */}
+              </button>
             </div>
             {files.map((file, index) => (
               <div
@@ -823,5 +829,4 @@ function Main_upload() {
 }
 
 export default Main_upload;
-
 
