@@ -26,3 +26,16 @@
 
 box-shadow: white 0px 0px 10px 5px;
 }
+
+
+
+@media(max-width:1920px) and (max-height:1050px){
+  #companyres{
+    padding: 20px ! important;
+    zoom: 1 !important;
+    margin-top: 30px !important;
+  }
+
+
+
+}

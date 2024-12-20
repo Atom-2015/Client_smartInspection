@@ -128,12 +128,24 @@ function CompanyManagement() {
         
       }} id='companyres'
     >
-      <h1 className="text-center mb-4  namemargin" style={{ color: '#ffffff', fontWeight: '700' }}>
+      {/* <h1 className="text-center mb-4  namemargin" style={{ color: '#ffffff', fontWeight: '700' }}>
         Company Management
-      </h1>
+      </h1> */}
+
+<h1
+  className="text-[35px] font-semibold mb-6 text-center text-white animate-typing"
+  style={{
+    display: 'inline-block',
+    overflow: 'hidden', 
+    whiteSpace: 'nowrap',
+    // borderRight: '2px solid #ffffff', // Cursor effect
+  }}
+>
+  Company Management
+</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group mb-4" id='namecompany'>
-          <label style={{ color: '#ffffff', fontSize: '16px', fontWeight: '600' }}>Company Name</label>
+          <label style={{ color: '#ffffff', fontSize: '19px', marginBottom:'10px' , fontWeight: '600' }}>Company Name</label>
           <input
             type="text"
             className="form-control"
@@ -145,11 +157,12 @@ function CompanyManagement() {
               borderRadius: '6px',
               padding: '10px',
               fontSize: '15px',
+            
             }}
           />
         </div>
         <div className="form-group mb-4" id='namecompany'>
-          <label style={{ color: '#ffffff', fontSize: '16px', fontWeight: '600' }}>Expiry Date</label>
+          <label style={{ color: '#ffffff', fontSize: '19px', marginBottom:'10px' ,  fontWeight: '600' }}>Expiry Date</label>
           <input
             type="date"
             className="form-control"

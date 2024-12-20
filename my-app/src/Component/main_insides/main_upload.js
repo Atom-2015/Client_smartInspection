@@ -537,6 +537,8 @@
 
 
 
+
+
 import React, { useState, useRef } from 'react';
 import exifParser from 'exif-parser';
 import { useLocation } from 'react-router-dom';
@@ -549,6 +551,8 @@ import { faChevronDown, faChevronRight, faTimes } from '@fortawesome/free-solid-
 import './analyse.css';
 import Detailuploadleft from './mainuploadComponent/detailuploadleft';
 import Showuploadeddata from './mainuploadComponent/showuploadeddata';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie'
 
 function Main_upload() {
   const [files, setFiles] = useState([]); // Holds the selected files
@@ -580,6 +584,8 @@ function Main_upload() {
     };
     reader.readAsArrayBuffer(file);
   };
+
+  const navigate = useNavigate();
 
   // Handle file selection
   const handleFileChange = (event) => {
@@ -629,7 +635,7 @@ function Main_upload() {
       return null;
     }
   };
-
+   
   // Handle file upload process
   const handleUploadClick = async () => {
     setIsLoading(true);
@@ -665,6 +671,7 @@ function Main_upload() {
           },
         });
         handleSuccess('Images uploaded successfully');
+         
       } catch (error) {
         console.error('Error sending data to API:', error);
         handleError('Error while uploading the files.');
@@ -822,5 +829,4 @@ function Main_upload() {
 }
 
 export default Main_upload;
-
 

@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Define the typing animation */
+@keyframes typing {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  /* Create a blinking cursor */
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
+  .animate-typing {
+    animation: typing 6s  1s forwards  infinite;
+  }
+  
+  

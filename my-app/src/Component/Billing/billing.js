@@ -26,9 +26,9 @@ function Billing() {
           </div>
         </div>
         <div className="col-md-8">
-          <h5 className="text-2xl text-white">Future Land Service Plans</h5>
+          <h5 className="text-2xl text-white">Smart Inspection Service Plans</h5>
           <p className="text-md text-white">
-            At <b>Future Land</b>, our goal is to provide measurable results that enhance our users' workflow. To maintain focus, we’ve chosen not to develop our own billing platform. Instead, we rely on Zoho Subscription, a trusted third-party billing solution that offers a secure customer portal where you can view invoices, payment history, and manage your Future Land subscription.
+            At <b>Smart Inspection</b>, our goal is to provide measurable results that enhance our users' workflow. To maintain focus, we’ve chosen not to develop our own billing platform. Instead, we rely on Zoho Subscription, a trusted third-party billing solution that offers a secure customer portal where you can view invoices, payment history, and manage your Future Land subscription.
           </p>
         </div>
       </div>
@@ -44,7 +44,7 @@ function Billing() {
               <hr />
               <p className="text-white"><strong>1 year access included</strong></p>
               <p className="text-white"><strong>1,000 images included</strong></p>
-              <small className="text-white">Experience Future Land for two weeks with up to 1,000 images before upgrading to a subscription plan.</small>
+              <small className="text-white">Experience Smart Inspection for two weeks with up to 1,000 images before upgrading to a subscription plan.</small>
               <button className="btn btn-primary btn-sm mt-2 text-white" disabled>Not Available</button>
             </div>
           </div>

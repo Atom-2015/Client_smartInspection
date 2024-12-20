@@ -282,7 +282,7 @@ const MapboxMap = () => {
   };
 
   return (
-    <div style={{ height: '100%', width: '100%' }} id='maprespo'>
+    <div style={{ height: '100%', width: '100%' , border:'1px solid white',  }} id='maprespo'>
       <Map
         {...viewState}
         mapboxAccessToken={

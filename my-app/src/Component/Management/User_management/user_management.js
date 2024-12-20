@@ -459,19 +459,34 @@ function UserManagement() {
         
 
   return (
-    <div>
-    <div style={{ maxWidth: '100%', padding: '20px', margin: 'auto', backgroundColor: '#1e1e1e' , boxShadow: '0px 0px 10px 5px white' , borderRadius: '10px' }} id='userresponsive'>
+    <div className='p-[0px]'>
+    <div style={{ maxWidth: '100%', padding: '10px', margin: 'auto', backgroundColor: '#1e1e1e' , boxShadow: '0px 0px 10px 5px white' , borderRadius: '10px' }} id='userresponsive'>
       {/* Form section */}
-      <div style={{ backgroundColor: '#1e1e1e', padding: '20px', borderRadius: '8px', boxShadow: '0px 4px 6px rgba(0, 0, 0, 1)' }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '20px', color: '#ffffff' }}>User Management</h1>
+      <div style={{ backgroundColor: '#1e1e1e', padding: '50px', borderRadius: '8px', boxShadow: '0px 4px 6px rgba(0, 0, 0, 1)' }}>
+        {/* <h1 style={{ textAlign: 'center', marginBottom: '20px',  textShadow: '0px 0px 2px blue', color: '#ffffff' }}>User Management</h1> */}
+    
+        <h1
+  className="text-[35px] font-semibold mb-6 text-center text-white animate-typing"
+  style={{
+    display: 'inline-block',
+    overflow: 'hidden', 
+    whiteSpace: 'nowrap',
+    // borderRight: '2px solid #ffffff', // Cursor effect
+  }}
+>
+  User Management
+</h1>
+
+
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexWrap: 'wrap', gap: '20px'  }}>
           <div style={{ flex: '1 1 45%' }}>
             <label className='text-white'>Name:</label>
+            
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={{ width: '100%', padding: '10px', borderRadius: '5px', border: '1px solid #ccc' }}
+              style={{ width: '100%', padding: '10px',  borderRadius: '5px', border: '1px solid #ccc' }}
               required
             />
           </div>

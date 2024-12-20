@@ -9,7 +9,7 @@ function index() {
             {/* Sidebar for Management */}
             <ManagementSide />
             {/* Content Area */}
-            <div className="flex-1 p-1 bg-[#1e1e1e]">
+            <div className="flex-1 bg-[#1e1e1e] p-[20px]">
                 <Outlet />
             </div>
         </div>
