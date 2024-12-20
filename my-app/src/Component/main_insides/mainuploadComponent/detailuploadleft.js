@@ -111,27 +111,32 @@ function Detailuploadleft({ filelength }) {
           <small className="text-white">Image Usage: 464 / 1000</small>
         </div>
 
-        <div className="p-4 bg-[#1e1e1e] rounded-lg shadow-md border border-white/50 shadow-white/20">
-          <p className="text-lg font-semibold text-white">Total Image Count:</p>
-          <p className="text-xl font-bold text-white">{filelength}</p>
+     
 
-          {filelength > 0 && (
-          <div className="mt-4">
-            <h6 className="text-white text-left mb-2">Upload Progress</h6>
-            <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
-              <div
-                className="bg-green-500 h-3 rounded-full transition-all duration-1000"
-                style={{ width: `${uploadProgress}%` }}
-              ></div>
-            </div>
-            <small className="text-white">{Math.round(uploadProgress)}%</small>
-          </div>
-        )}
-        </div>
 
+<div className="p-4 bg-[#1e1e1e] rounded-lg shadow-md border-4 border-white/50 shadow-white/20 relative overflow-hidden">
+  <p className="text-lg font-semibold text-white">Total Image Count:</p>
+  <p className="text-xl font-bold text-white">{filelength}</p>
+
+  {filelength > 0 && (
+    <div className="mt-4">
+      <h6 className="text-white text-left mb-2">Upload Progress</h6>
+      <div className="w-full bg-gray-800 rounded-full h-3 overflow-hidden">
+        <div
+          className="bg-green-500 h-3 rounded-full transition-all duration-1000"
+          style={{ width: `${uploadProgress}%` }}
+        ></div>
+      </div>
+      <small className="text-white">{Math.round(uploadProgress)}%</small>
+    </div>
+  )}
+
+  {/* Animated running border */}
+  <div className="absolute top-0 left-0 w-full h-full border-4 border-white/500 rounded-lg border-solid animate-glowing-clockwise-border"></div>
+</div>
        
 
-        <div className="mt-auto text-sm text-gray-500">
+        <div className="mt-5 text-sm text-gray-500">
           Powered by Smart Inspection
         </div>
       </form>

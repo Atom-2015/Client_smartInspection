@@ -765,7 +765,7 @@ function Main_upload() {
         )}
 
         {files.length > 0 && (
-          <div className="fixed bottom-0 right-0 w-72 bg-gray-900 text-white p-4 shadow-lg rounded-t-lg">
+          <div className="fixed bottom-0 right-0 w-84 overflow-y-scroll h-[500px] bg-gray-900 text-white p-4 shadow-lg rounded-t-lg">
             <div className="flex justify-between items-center mb-2">
               <h4>Uploading Files</h4>
               <button onClick={() => setTabMinimized(true)} className="text-white">
@@ -806,13 +806,13 @@ function Main_upload() {
             ))}
             <button
               onClick={handleCancelAllUploads}
-              className="mt-4 w-full bg-red-600 text-white p-2 rounded"
+              className="mt-2 w-full bg-red-600 text-white p-2 rounded"
             >
               Cancel All Uploads
             </button>
             <button
               onClick={handleUploadClick}
-              className="mt-4 w-full bg-green-600 text-white p-2 rounded"
+              className="mt-2 w-full bg-green-600 text-white p-2 rounded"
             >
               {isLoading ? (
                 <InfinitySpin color="#fff" width="50" />
@@ -829,4 +829,14 @@ function Main_upload() {
 }
 
 export default Main_upload;
+
+
+
+
+
+
+
+
+
+
 

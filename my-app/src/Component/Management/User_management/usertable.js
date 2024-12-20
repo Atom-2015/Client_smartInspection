@@ -264,6 +264,8 @@ function Usertable() {
       handleError(errorMessage || "Failed to delete user");
     }
   }, [isError, data, errorMessage]);
+ 
+
 
   useEffect(() => {
     (async () => {
@@ -275,7 +277,7 @@ function Usertable() {
         });
 
         if (response && response.data.data) {
-          setUserData(response.data.data);
+          setUserData(response.data.data.reverse());
         } else {
           console.log('No user data found');
         }
